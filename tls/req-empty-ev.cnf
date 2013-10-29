@@ -1,0 +1,6 @@
+oid_file = ev-oid.tsv
+
+[ req ]
+distinguished_name = req_distinguished_name
+
+[ req_distinguished_name ]

@@ -1,0 +1,21 @@
+<xades:SignatureTimeStamp xmlns:xades="http://uri.etsi.org/01903/v1.3.2#">
+              <ds:CanonicalizationMethod xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"></ds:CanonicalizationMethod>
+              <xades:EncapsulatedTimeStamp Id="Id_SignatureTimeStamp">
+MIIC3TADAgEAMIIC1AYJKoZIhvcNAQcCoIICxTCCAsECAQMxCzAJBgUrDgMCGgUA
+MIGOBgsqhkiG9w0BCRABBKB/BH0wewIBAQYkKoZIhvcUAb5Ak3qC8U+DpxmD4GyB
+n36CuiCEgKIrhZ3WYgEFMDEwDQYJYIZIAWUDBAIBBQAEIGrWeOg3Dh66RRbmQ7n1
+MW9yNfJNH8V2HwPZktrnVPsyAgEDGA8yMDEyMDYxNzE0MjYwMFoCCQCVo26o8wA/
+ZjGCAhwwggIYAgEBMGYwWTELMAkGA1UEBhMCRlIxFzAVBgNVBAoTDk1vbiBFbnRy
+ZXByaXNlMRcwFQYDVQQLEw4wMDAyIDEyMzQ1Njc4OTEYMBYGA1UECxMPT3BlblNT
+TCBSb290IENBAgkA07lPBN3RoEAwCQYFKw4DAhoFAKCBjDAaBgkqhkiG9w0BCQMx
+DQYLKoZIhvcNAQkQAQQwHAYJKoZIhvcNAQkFMQ8XDTEyMDYxNzE0MjYwMFowIwYJ
+KoZIhvcNAQkEMRYEFCJRc+s4jAA84W4HO2sgK3VauFTrMCsGCyqGSIb3DQEJEAIM
+MRwwGjAYMBYEFEMopucZySTSxBTCSucZUJOVYcUJMA0GCSqGSIb3DQEBAQUABIIB
+AGIR8+o0WznZFtTCfH5Rl6yjB5jAYMvRS68hIFFZaYOqMwp6sszgKQVTEjATnX3G
+FlwcbVKg3gH0lpRIeF4aOfYe3vEOT4emVOzqg3U56k1Z4w1+FL1WZHufKUjt0hfC
+V9Gs6aWDi4O5DBGuvROADvglKsQE5zujjWWa0///bc0YAcgRS5gFMcMQd4+AbHUN
+PUd8ZmKAp1z6QtD5Xrf7wYw7C4dbqvNb9lDES57gViqV9CY10D232gFFFL8JY/9o
+pC+AjXkepK3jfihEey/UBg5FFdWvASMbZ8G0P1Fnbh4pM6mUI0q6TDw9Plg347Us
+n86+XuM+uE0nAfTy4Kb51/U=
+              </xades:EncapsulatedTimeStamp>
+            </xades:SignatureTimeStamp>

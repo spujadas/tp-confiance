@@ -1,0 +1,4 @@
+#!/bin/bash
+for i in $* ; do \
+  echo `od -tx1 -An "$i" | tr -d "\r\n "`:$i ; \
+done

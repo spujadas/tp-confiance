@@ -1,0 +1,149 @@
+asn1 = SEQUENCE:LTV_TST
+
+[LTV_TST]
+contentType = OID:pkcs7-signedData
+content = EXPLICIT:0,SEQUENCE:LTV_TST_content
+
+[LTV_TST_content]
+version = INTEGER:3
+digestAlgorithms = SET:LTV_TST_digestAlgorithms
+encapContentInfo = SEQUENCE:LTV_TST_encapContentInfo
+signerInfos = SET:LTV_TST_signerInfos
+
+[LTV_TST_digestAlgorithms]
+digestAlgorithm = SEQUENCE:LTV_TST_digestAlgorithm
+
+[LTV_TST_digestAlgorithm]
+algorithm = OID:sha1
+parameters = NULL
+
+[LTV_TST_encapContentInfo]
+eContentType = OID:id-smime-ct-TSTInfo
+eContent = EXPLICIT:0,OCTWRAP,SEQUENCE:LTV_TST_TSTInfo
+
+[LTV_TST_TSTInfo]
+version = INTEGER:1
+policy = OID:\
+1.2.840.113556.1.8000.2554.47311.54169.61548.20478.40224.8393003.10972002.1.5
+messageImprint = SEQUENCE:LTV_TST_messageImprint
+serialNumber = INTEGER:12
+genTime = GENERALIZEDTIME:20120628204038Z
+nonce = INTEGER:0x0090a7870811e427e7
+
+[LTV_TST_messageImprint]
+hashAlgorithm = SEQUENCE:LTV_TST_TSTInfo_hashAlgorithm
+hashedMessage = FORMAT:HEX,OCTETSTRING:\
+1296cc40e45a61c64f60229ee835ed15193e2b162927fd1f287ae49754b2a9c6
+
+[LTV_TST_TSTInfo_hashAlgorithm]
+algorithm = OID:sha256
+parameters = NULL
+
+[LTV_TST_signerInfos]
+signerInfo = SEQUENCE:LTV_TST_signerInfo
+
+[LTV_TST_signerInfo]
+version = INTEGER:1
+sid = SEQUENCE:LTV_TST_sid
+digestAlgorithm = SEQUENCE:LTV_TST_digestAlgorithm
+signedAttrs = IMPLICIT:0,SEQUENCE:LTV_TST_signedAttrs
+signatureAlgorithm = SEQUENCE:LTV_TST_signatureAlgorithm
+signature = FORMAT:HEX,OCTETSTRING:\
+68fd52c20f948eec7cde8f818d3c3ab1d0959efbebf9b796311ac4c149b6a2b0\
+d48215b81e00359c38ad7f1517a10c9f3a9a57d6c0fac8d663be6aec47add59f\
+d942a2b5a46a0cefa0145b73e635c172261087dd49f342d32aa5696184649734\
+50eccfa833e4b9fb661a04d0b27a940115f3dc2dbefe5a63caaf7cbbde596f3f\
+0e6537ffc3ce452c74f9228a78086f25317a11a7660cce638ede7340ece793ea\
+6a97d646ce54932e3919b9f45cc5c0517e3134cc3cf9c87588611ee3de8b87b4\
+6da78b8b9e1ca38af4f8aca82bf47bff44382e403fc353a22ed2a0648a064008\
+cf56a79f122052478a75f99515acedd6d45a9c6655ab2e5e3e4fe8a65a36875c
+
+[LTV_TST_sid]
+issuer = SEQUENCE:tsa_issuer
+serial = INTEGER:0xd3b94f04ddd1a040
+
+[tsa_issuer]
+C = SET:tsa_issuer_C_RDN
+O = SET:tsa_issuer_O_RDN
+OU1 = SET:tsa_issuer_OU1_RDN
+OU2 = SET:tsa_issuer_OU2_RDN
+
+[tsa_issuer_C_RDN]
+rdn = SEQUENCE:tsa_issuer_C_ATV
+
+[tsa_issuer_C_ATV]
+type = OID:countryName
+value = PRINTABLESTRING:FR
+
+[tsa_issuer_O_RDN]
+rdn = SEQUENCE:tsa_issuer_O_ATV
+
+[tsa_issuer_O_ATV]
+type = OID:organizationName
+value = PRINTABLESTRING:Mon Entreprise
+
+[tsa_issuer_OU1_RDN]
+rdn = SEQUENCE:tsa_issuer_OU1_ATV
+
+[tsa_issuer_OU1_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:0002 123456789
+
+[tsa_issuer_OU2_RDN]
+rdn = SEQUENCE:tsa_issuer_OU2_ATV
+
+[tsa_issuer_OU2_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:OpenSSL Root CA
+
+[LTV_TST_digestAlgorithm]
+algorithm = OID:sha1
+parameters = NULL
+
+[LTV_TST_signedAttrs]
+attr_contentType = SEQUENCE:LTV_TST_attr_contentType
+attr_signingTime = SEQUENCE:LTV_TST_attr_signingTime
+attr_messageDigest = SEQUENCE:LTV_TST_attr_messageDigest
+attr_signingCertificate = SEQUENCE:LTV_TST_attr_signingCertificate
+
+[LTV_TST_attr_contentType]
+attrType = OID:contentType
+attrValues = SET:LTV_TST_attr_contentType_values
+
+[LTV_TST_attr_contentType_values]
+contentType = OID:id-smime-ct-TSTInfo
+
+[LTV_TST_attr_signingTime]
+attrType = OID:signingTime
+attrValues = SET:LTV_TST_attr_signingTime_values
+
+[LTV_TST_attr_signingTime_values]
+attr_signingTime_value = UTCTIME:120628204038Z
+
+[LTV_TST_attr_messageDigest]
+attrType = OID:messageDigest
+attrValues = SET:LTV_TST_attr_messageDigest_values
+
+[LTV_TST_attr_messageDigest_values]
+messageDigest = FORMAT:HEX,OCTETSTRING:\
+c8330ac86400e185465f1a5856a258d0cc434c7b
+
+[LTV_TST_attr_signingCertificate]
+attrType = OID:id-smime-aa-signingCertificate
+attrValues = SET:LTV_TST_attr_signingCertificate_values
+
+[LTV_TST_attr_signingCertificate_values]
+signingCertificate = SEQUENCE:LTV_TST_signingCertificate_certs
+
+[LTV_TST_signingCertificate_certs]
+certs = SEQUENCE:LTV_TST_signingCertificate_essCertIDs
+
+[LTV_TST_signingCertificate_essCertIDs]
+essCertID = SEQUENCE:LTV_TST_signingCertificate_essCertID
+
+[LTV_TST_signingCertificate_essCertID]
+certHash = FORMAT:HEX,OCTETSTRING:4328a6e719c924d2c414c24ae71950939561c509
+
+[LTV_TST_signatureAlgorithm]
+algorithm = OID:rsaEncryption
+parameters = NULL

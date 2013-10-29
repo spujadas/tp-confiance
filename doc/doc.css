@@ -1,0 +1,368 @@
+﻿/*
+  Heavily inspired by this style sheet:
+  http://www.princexml.com/howcome/2008/wikipedia/wiki2.css
+  which was originally written by Hakon Wium Lie March 2008.
+*/
+
+@import url(fonts/gentium/index.css);
+@import url(fonts/latinmodern/index.css);
+
+/* set headers and footers */
+
+@page {
+  size: a4;
+  margin: 3cm 2cm;
+  font: 12pt "Gentium", serif;
+
+  @footnotes {
+    border-top: solid black thin;
+    padding-top: 8pt ;
+  }
+}
+
+@page :first {
+  @top-right { 
+    content: normal;
+  }
+  @top-left { 
+    content: normal;
+  }
+  @bottom-left {
+    content: normal;
+  }
+  @bottom-right {
+    content: normal;
+  }
+}
+
+@page :left {
+  @top-left { 
+    content: string(chaptertitle);
+    font-style: italic;
+  }
+  @bottom-left {
+    content: counter(page);
+    vertical-align: top;
+    padding-top: 1em;
+    font-weight: bold ;
+  }
+}
+
+@page :right {
+  @top-right { 
+    content: string(title);
+    font-style: italic;
+  }
+  @bottom-right {
+    content: counter(page);
+    vertical-align: top;
+    padding-top: 1em;
+    font-weight: bold ;
+  }
+}
+
+@page front-matter :left {
+  @bottom-left {
+    content: counter(page, lower-roman);
+    vertical-align: top;
+    padding-top: 1em;
+    font-weight: bold ;
+  }
+}
+
+@page front-matter :right {
+  @bottom-right {
+    content: counter(page, lower-roman);
+    vertical-align: top;
+    padding-top: 1em;
+    font-weight: bold ;
+  }
+}
+
+/* basic style settings*/
+
+body {
+  font: 12pt "Gentium", serif;
+  prince-linebreak-magic: auto; 
+  hyphens: auto;
+  hyphenate-patterns: url('C:/apps/Prince/Engine/hyph/hyph-fr.pat');
+  text-align: justify;
+}
+
+code, pre {
+	font-family: "LatinModern", monospace;
+}
+
+code {
+/*	font-size: 90% ;*/
+}
+
+ul, ol, dl {
+  text-align: justify;
+  hyphens: manual;
+}
+
+h1, h2, h3, h4, h5, h6 { 
+  line-height: 1.2;
+  padding: 0;
+  margin: 0.7em 0 0.2em; 
+  font-weight: normal;
+  text-align: left;
+  page-break-after: avoid;
+  /*clear: both;*/
+  hyphens: none ;
+}
+
+/* page styles, titles, etc. */
+
+.frontmatter {
+  page: front-matter ;
+}
+
+#title {
+  float: top; 
+  margin-top: 4em ;
+  padding-bottom: 0.2em;
+  margin-bottom: 1em;
+  font-size: 340% ;
+  string-set: title content() ;
+  hyphens: none ;
+  text-align: left;
+}
+
+#author {
+  text-align: right;
+  font-size: 170% ;
+  font-style: italic;
+}
+
+.signature {
+    text-align: right;
+}
+
+h1 {
+	page-break-before: right ;
+	prince-bookmark-level: 1 ;
+  counter-reset: section ;
+	font-size: 210% ;
+  font-weight: bold ;
+  margin-bottom: 1em ;
+}
+
+h2 {
+	counter-increment: section ;
+	counter-reset: subsection ;
+	prince-bookmark-level: 2 ;
+	margin-top: 2em ;
+	font-size: 150% ;
+}
+
+h3 {
+	margin-top: 2em ;
+	font-style: italic;
+	font-size: 120% ;
+  prince-bookmark-level: none ;
+}
+
+ul, pre, img {
+	page-break-before: avoid ;
+}
+
+img {
+	display: block;
+  margin-left: auto;
+  margin-right: auto ;
+}
+
+.note {
+	border-left: 1em solid #CCC;
+	padding-left: 1em;
+	font-size: 90%;
+}
+
+.exercise {
+	padding-left: 1em ;
+  text-indent: -1em ;
+}
+
+.longnote {
+  margin-top: 2em;
+  margin-bottom: 2em;
+	border: 1pt solid #000 ;
+	padding: 0.5em ;
+  background-color: #eee;
+}
+
+.notetitle {
+	font-weight: bold ;
+	font-style: roman ;
+	font-size: 110% ;
+}
+
+p { 
+	padding: 0; 
+	margin: .7em 0;
+	text-indent:0;
+}
+
+li {
+	margin-bottom: .3em ;
+}
+
+pre {
+	/* font-size: 10pt ;*/ 
+	/* font-size: 83% ;*/
+	font-size: 90% ;
+	margin: .5em 0 ;
+}
+
+ul { 
+  list-style-type: disc;
+  margin-left: 1.3em;
+}
+
+div, img { max-width: 100% }
+
+sup { 
+    top: -0.5em;
+    font-size: 80% ;
+}
+
+/* chapter and section numbering */
+
+.chapters h1 {
+	counter-increment: chapternumber ;
+	counter-reset: section ;
+  string-set: chaptertitle counter(chapternumber, decimal) ". " content();
+  prince-bookmark-label: counter(chapternumber, decimal) ". " content();
+}
+
+.chapters, .appendices {
+  counter-reset: chapternumber ;
+}
+
+.chapters {
+  counter-reset: page 1 ;
+}
+
+.frontmatter h1, .backmatter h1 {
+  string-set: chaptertitle content();
+}
+
+.appendices h1 {
+	counter-increment: chapternumber ;
+	counter-reset: section ;
+  string-set: chaptertitle counter(chapternumber, upper-alpha) ". " content();
+  prince-bookmark-label: counter(chapternumber, upper-alpha) ". " content();
+}
+
+.chapters h1::before {
+	content: "Chapitre " counter(chapternumber, decimal) " — ";
+}
+
+.appendices h1::before {
+	content: "Annexe " counter(chapternumber, upper-alpha) " — ";
+}
+
+.chapters h2::before {
+	content: counter(chapternumber, decimal) "." counter(section, decimal) ". " ;
+}
+
+.appendices h2::before {
+	content: counter(chapternumber, upper-alpha) "." counter(section, decimal) ". " ;
+}
+
+.chapters h2 {
+  prince-bookmark-label: counter(chapternumber, decimal) "." counter(section, decimal) ". " content() ;
+}
+
+.appendices h2 {
+  prince-bookmark-label: counter(chapternumber, upper-alpha) "." counter(section, decimal) ". " content() ;
+}
+
+/* references */
+
+a { text-decoration: none; color: inherit; }
+
+a[href].chapter::after {
+    content: target-counter(attr(href), chapternumber)
+}
+
+a[href].appendix::after {
+    content: target-counter(attr(href), chapternumber, upper-alpha)
+}
+
+a[href].appendix_section::after {
+    content: target-counter(attr(href), chapternumber, upper-alpha) "." target-counter(attr(href), section)
+}
+
+a[href].section::after {
+    content: target-counter(attr(href), chapternumber) "." target-counter(attr(href), section)
+}
+
+a[href].page::after {
+    content: target-counter(attr(href), page)
+}
+
+/* Footnotes */
+
+.fn {
+	float: footnote ;
+	font-size: 10pt;
+}
+
+.fn::footnote-marker {
+	content: counter(footnote) ".\00A0"
+}
+
+/* table of contents */
+#ToCul {
+  margin: 1em 0 0 .5em;
+}
+
+#ToCul li a.chapters::before {
+  content: target-counter(attr(href), chapternumber, decimal) ". "
+}
+
+#ToCul li a.appendices::before {
+  content: target-counter(attr(href), chapternumber, upper-alpha) ". "
+}
+
+#ToCul li li a.chapters::before {
+  content: target-counter(attr(href), chapternumber, decimal) "." target-counter(attr(href), section, decimal) ". "
+}
+
+#ToCul li li a.appendices::before {
+  content: target-counter(attr(href), chapternumber, upper-alpha) "." target-counter(attr(href), section, decimal) ". "
+}
+
+#ToCul a {
+  color: black;
+  text-decoration: none;
+  content: target-content(attr(href));
+}
+
+#ToCul a::after {
+  content: " " leader(".") " " target-counter(attr(href), page) ;
+}
+
+#ToCul a.frontmatter::after {
+  content: " " leader(".") " " target-counter(attr(href), page, lower-roman) ;
+}
+
+#ToCul li {
+  margin-top: .6em ;
+}
+
+#ToCul, #ToCul ul {
+  list-style-type: none;
+}
+
+#ToCul ul {
+  margin-left: 2em;
+  list-style-type: none;
+}
+
+#ToCul li li{
+  margin-top: 0.3em;
+}

@@ -1,0 +1,10 @@
+asn1 = SEQUENCE:digestInfo
+
+[digestInfo]
+digestAlgorithm = SEQUENCE:digestAlgorithm
+digest = FORMAT:HEX,OCTETSTRING:\
+1e656e089e0e9c8196eb547aff9fb3808fe837a35351b9b1a3a8dc4de8769479
+
+[digestAlgorithm]
+algorithm = OID:sha256
+parameters = NULL

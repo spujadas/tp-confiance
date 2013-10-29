@@ -1,0 +1,84 @@
+asn1 = SEQUENCE:tbsCertList
+
+[tbsCertList]
+version = INTEGER:1
+signature = SEQUENCE:crl_signature
+issuer = SEQUENCE:crl_issuer
+thisUpdate = UTCTIME:120616154442Z
+nextUpdate = UTCTIME:120618154442Z
+revokedCertificates = SEQUENCE:revokedCertificates
+crlExtensions = EXPLICIT:0,SEQUENCE:crlExtensions
+
+[crl_signature]
+algorithm = OID:sha256WithRSAEncryption
+parameters = NULL
+
+[crl_issuer]
+C = SET:crl_issuer_C_RDN
+O = SET:crl_issuer_O_RDN
+OU1 = SET:crl_issuer_OU1_RDN
+OU2 = SET:crl_issuer_OU2_RDN
+
+[crl_issuer_C_RDN]
+rdn = SEQUENCE:crl_issuer_C_ATV
+
+[crl_issuer_C_ATV]
+type = OID:countryName
+value = PRINTABLESTRING:FR
+
+[crl_issuer_O_RDN]
+rdn = SEQUENCE:crl_issuer_O_ATV
+
+[crl_issuer_O_ATV]
+type = OID:organizationName
+value = PRINTABLESTRING:Mon Entreprise
+
+[crl_issuer_OU1_RDN]
+rdn = SEQUENCE:crl_issuer_OU1_ATV
+
+[crl_issuer_OU1_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:0002 123456789
+
+[crl_issuer_OU2_RDN]
+rdn = SEQUENCE:crl_issuer_OU2_ATV
+
+[crl_issuer_OU2_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:OpenSSL Root CA
+
+[revokedCertificates]
+revokedCertificate = SEQUENCE:revokedCertificate_1
+
+[revokedCertificate_1]
+userCertificate = INTEGER:0x89fc7231aec956c0
+revocationDate = UTCTIME:120616153743Z
+crlEntryExtensions = SEQUENCE:crlEntryExtensions_1
+
+[crlEntryExtensions_1]
+CRLReason = SEQUENCE:CRLReason_1
+invalidityDate = SEQUENCE:invalidityDate_1
+
+[CRLReason_1]
+extnID = OID:CRLReason
+extnValue = OCTWRAP,ENUMERATED:1
+
+[invalidityDate_1]
+extnID = OID:invalidityDate
+extnValue = OCTWRAP,GENERALIZEDTIME:20120616172700Z
+
+[crlExtensions]
+authorityKeyIdentifier = SEQUENCE:crl_authorityKeyIdentifier
+crlNumber = SEQUENCE:crlNumber
+
+[crl_authorityKeyIdentifier]
+extnID = OID:authorityKeyIdentifier
+extnValue = OCTWRAP,SEQUENCE:crl_authorityKeyIdentifier_seq
+
+[crl_authorityKeyIdentifier_seq]
+keyIdentifier = IMPLICIT:0,FORMAT:HEX,OCTETSTRING:\
+4c6d879382f72d2c0723a20fe0712d173f39f38f
+
+[crlNumber]
+extnID = OID:crlNumber
+extnValue = OCTWRAP,INTEGER:2

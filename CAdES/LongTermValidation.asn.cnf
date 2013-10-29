@@ -1,0 +1,591 @@
+asn1 = SEQUENCE:LongTermValidation
+
+[LongTermValidation]
+poeDate = GENERALIZEDTIME:20120628204038Z
+timeStamp = EXPLICIT:0,SEQUENCE:LTV_TST
+extraCertificates = EXPLICIT:0,SET:extraCertificates
+extraRevocation = EXPLICIT:1,SET:extraRevocation
+
+[extraCertificates]
+certificate_1 = SEQUENCE:tsa_certificate
+certificate_2 = SEQUENCE:ca_certificate
+
+[extraRevocation]
+certificateList_1 = SEQUENCE:ltv_certificateList
+
+asn1 = SEQUENCE:LTV_TST
+
+[LTV_TST]
+contentType = OID:pkcs7-signedData
+content = EXPLICIT:0,SEQUENCE:LTV_TST_content
+
+[LTV_TST_content]
+version = INTEGER:3
+digestAlgorithms = SET:LTV_TST_digestAlgorithms
+encapContentInfo = SEQUENCE:LTV_TST_encapContentInfo
+signerInfos = SET:LTV_TST_signerInfos
+
+[LTV_TST_digestAlgorithms]
+digestAlgorithm = SEQUENCE:LTV_TST_digestAlgorithm
+
+[LTV_TST_digestAlgorithm]
+algorithm = OID:sha1
+parameters = NULL
+
+[LTV_TST_encapContentInfo]
+eContentType = OID:id-smime-ct-TSTInfo
+eContent = EXPLICIT:0,OCTWRAP,SEQUENCE:LTV_TST_TSTInfo
+
+[LTV_TST_TSTInfo]
+version = INTEGER:1
+policy = OID:\
+1.2.840.113556.1.8000.2554.47311.54169.61548.20478.40224.8393003.10972002.1.5
+messageImprint = SEQUENCE:LTV_TST_messageImprint
+serialNumber = INTEGER:12
+genTime = GENERALIZEDTIME:20120628204038Z
+nonce = INTEGER:0x0090a7870811e427e7
+
+[LTV_TST_messageImprint]
+hashAlgorithm = SEQUENCE:LTV_TST_TSTInfo_hashAlgorithm
+hashedMessage = FORMAT:HEX,OCTETSTRING:\
+1296cc40e45a61c64f60229ee835ed15193e2b162927fd1f287ae49754b2a9c6
+
+[LTV_TST_TSTInfo_hashAlgorithm]
+algorithm = OID:sha256
+parameters = NULL
+
+[LTV_TST_signerInfos]
+signerInfo = SEQUENCE:LTV_TST_signerInfo
+
+[LTV_TST_signerInfo]
+version = INTEGER:1
+sid = SEQUENCE:LTV_TST_sid
+digestAlgorithm = SEQUENCE:LTV_TST_digestAlgorithm
+signedAttrs = IMPLICIT:0,SEQUENCE:LTV_TST_signedAttrs
+signatureAlgorithm = SEQUENCE:LTV_TST_signatureAlgorithm
+signature = FORMAT:HEX,OCTETSTRING:\
+68fd52c20f948eec7cde8f818d3c3ab1d0959efbebf9b796311ac4c149b6a2b0\
+d48215b81e00359c38ad7f1517a10c9f3a9a57d6c0fac8d663be6aec47add59f\
+d942a2b5a46a0cefa0145b73e635c172261087dd49f342d32aa5696184649734\
+50eccfa833e4b9fb661a04d0b27a940115f3dc2dbefe5a63caaf7cbbde596f3f\
+0e6537ffc3ce452c74f9228a78086f25317a11a7660cce638ede7340ece793ea\
+6a97d646ce54932e3919b9f45cc5c0517e3134cc3cf9c87588611ee3de8b87b4\
+6da78b8b9e1ca38af4f8aca82bf47bff44382e403fc353a22ed2a0648a064008\
+cf56a79f122052478a75f99515acedd6d45a9c6655ab2e5e3e4fe8a65a36875c
+
+[LTV_TST_sid]
+issuer = SEQUENCE:tsa_issuer
+serial = INTEGER:0xd3b94f04ddd1a040
+
+[tsa_issuer]
+C = SET:tsa_issuer_C_RDN
+O = SET:tsa_issuer_O_RDN
+OU1 = SET:tsa_issuer_OU1_RDN
+OU2 = SET:tsa_issuer_OU2_RDN
+
+[tsa_issuer_C_RDN]
+rdn = SEQUENCE:tsa_issuer_C_ATV
+
+[tsa_issuer_C_ATV]
+type = OID:countryName
+value = PRINTABLESTRING:FR
+
+[tsa_issuer_O_RDN]
+rdn = SEQUENCE:tsa_issuer_O_ATV
+
+[tsa_issuer_O_ATV]
+type = OID:organizationName
+value = PRINTABLESTRING:Mon Entreprise
+
+[tsa_issuer_OU1_RDN]
+rdn = SEQUENCE:tsa_issuer_OU1_ATV
+
+[tsa_issuer_OU1_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:0002 123456789
+
+[tsa_issuer_OU2_RDN]
+rdn = SEQUENCE:tsa_issuer_OU2_ATV
+
+[tsa_issuer_OU2_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:OpenSSL Root CA
+
+[LTV_TST_digestAlgorithm]
+algorithm = OID:sha1
+parameters = NULL
+
+[LTV_TST_signedAttrs]
+attr_contentType = SEQUENCE:LTV_TST_attr_contentType
+attr_signingTime = SEQUENCE:LTV_TST_attr_signingTime
+attr_messageDigest = SEQUENCE:LTV_TST_attr_messageDigest
+attr_signingCertificate = SEQUENCE:LTV_TST_attr_signingCertificate
+
+[LTV_TST_attr_contentType]
+attrType = OID:contentType
+attrValues = SET:LTV_TST_attr_contentType_values
+
+[LTV_TST_attr_contentType_values]
+contentType = OID:id-smime-ct-TSTInfo
+
+[LTV_TST_attr_signingTime]
+attrType = OID:signingTime
+attrValues = SET:LTV_TST_attr_signingTime_values
+
+[LTV_TST_attr_signingTime_values]
+attr_signingTime_value = UTCTIME:120628204038Z
+
+[LTV_TST_attr_messageDigest]
+attrType = OID:messageDigest
+attrValues = SET:LTV_TST_attr_messageDigest_values
+
+[LTV_TST_attr_messageDigest_values]
+messageDigest = FORMAT:HEX,OCTETSTRING:\
+c8330ac86400e185465f1a5856a258d0cc434c7b
+
+[LTV_TST_attr_signingCertificate]
+attrType = OID:id-smime-aa-signingCertificate
+attrValues = SET:LTV_TST_attr_signingCertificate_values
+
+[LTV_TST_attr_signingCertificate_values]
+signingCertificate = SEQUENCE:LTV_TST_signingCertificate_certs
+
+[LTV_TST_signingCertificate_certs]
+certs = SEQUENCE:LTV_TST_signingCertificate_essCertIDs
+
+[LTV_TST_signingCertificate_essCertIDs]
+essCertID = SEQUENCE:LTV_TST_signingCertificate_essCertID
+
+[LTV_TST_signingCertificate_essCertID]
+certHash = FORMAT:HEX,OCTETSTRING:4328a6e719c924d2c414c24ae71950939561c509
+
+[LTV_TST_signatureAlgorithm]
+algorithm = OID:rsaEncryption
+parameters = NULL
+
+[tsa_certificate]
+tbsCertificate = SEQUENCE:tsa_tbsCertificate
+signatureAlgorithm = SEQUENCE:tsa_signatureAlgorithm
+signatureValue = FORMAT:HEX,BITSTRING:\
+0f9ad3afe45665ba7c3b92caa0fe2d49378d53e379e618915176f5a9da8b48c5\
+589e850fa297027754f87f0f3dc305e8e21bfad90f3df235712ada052ec7ac5d\
+6c40f6ad73948677148aa4ea6b9fea005ef33d7fbade612505c638b787c4308e\
+4dd44ec356a493fc743bb488450f53dc90ffeb3be8008c792ba99bccfd6dc3ec\
+4c5de3b812681a1d57cdf8a219652a26f796b5734e2a2ce62a9dcd5461c7993a\
+8f8564f16f68f054e20c0904afa3c9c79d4c92f8ae007ba6d4d768896ae21250\
+a98d268d465ece52b59cba647e12b66e73138ca90a1104f49491d6c340c7ea6a\
+ec613e015fed29d6efa873964a937b5cb63e134cb858d8bb1b52fd51edc8c99a
+
+[tsa_tbsCertificate]
+version = EXPLICIT:0,INTEGER:2
+serialNumber = INTEGER:0xd3b94f04ddd1a040
+signature = SEQUENCE:tsa_signature
+issuer = SEQUENCE:tsa_issuer
+validity = SEQUENCE:tsa_validity
+subject = SEQUENCE:tsa_subject
+subjectPublicKeyInfo = SEQUENCE:tsa_subjectPublicKeyInfo
+extensions = EXPLICIT:3,SEQUENCE:tsa_extensions
+
+[tsa_signatureAlgorithm]
+algorithm = OID:sha256WithRSAEncryption
+parameters = NULL
+
+[tsa_signature]
+algorithm = OID:sha256WithRSAEncryption
+parameters = NULL
+
+[tsa_issuer]
+C = SET:tsa_issuer_C_RDN
+O = SET:tsa_issuer_O_RDN
+OU1 = SET:tsa_issuer_OU1_RDN
+OU2 = SET:tsa_issuer_OU2_RDN
+
+[tsa_issuer_C_RDN]
+rdn = SEQUENCE:tsa_issuer_C_ATV
+
+[tsa_issuer_C_ATV]
+type = OID:countryName
+value = PRINTABLESTRING:FR
+
+[tsa_issuer_O_RDN]
+rdn = SEQUENCE:tsa_issuer_O_ATV
+
+[tsa_issuer_O_ATV]
+type = OID:organizationName
+value = PRINTABLESTRING:Mon Entreprise
+
+[tsa_issuer_OU1_RDN]
+rdn = SEQUENCE:tsa_issuer_OU1_ATV
+
+[tsa_issuer_OU1_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:0002 123456789
+
+[tsa_issuer_OU2_RDN]
+rdn = SEQUENCE:tsa_issuer_OU2_ATV
+
+[tsa_issuer_OU2_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:OpenSSL Root CA
+
+[tsa_validity]
+notBefore = UTCTIME:120616203401Z
+notAfter = UTCTIME:140616203401Z
+
+[tsa_subject]
+C = SET:tsa_subject_C_RDN
+O = SET:tsa_subject_O_RDN
+OU = SET:tsa_subject_OU_RDN
+CN = SET:tsa_subject_CN_RDN
+
+[tsa_subject_C_RDN]
+rdn = SEQUENCE:tsa_subject_C_ATV
+
+[tsa_subject_C_ATV]
+type = OID:countryName
+value = PRINTABLESTRING:FR
+
+[tsa_subject_O_RDN]
+rdn = SEQUENCE:tsa_subject_O_ATV
+
+[tsa_subject_O_ATV]
+type = OID:organizationName
+value = PRINTABLESTRING:Mon Entreprise
+
+[tsa_subject_OU_RDN]
+rdn = SEQUENCE:tsa_subject_OU_ATV
+
+[tsa_subject_OU_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:0002 123456789
+
+[tsa_subject_CN_RDN]
+rdn = SEQUENCE:tsa_subject_CN_ATV
+
+[tsa_subject_CN_ATV]
+type = OID:commonName
+value = PRINTABLESTRING:OpenSSL TSA
+
+[tsa_subjectPublicKeyInfo]
+algorithm = SEQUENCE:tsa_rsaEncryption
+subjectPublicKey = BITWRAP,SEQUENCE:tsa_subjectPublicKey
+
+[tsa_rsaEncryption]
+algorithm = OID:rsaEncryption
+parameters = NULL
+
+[tsa_subjectPublicKey]
+n = INTEGER:0xc890c43fb9ea0dfeb6a0d811df6ba4b0294b687f61606932f2189c33cc13db774\
+2137124592f0fe8b5c78147507daf5f332c817b76f1b62038107b56707b54e6600960c51ad9cf26\
+73f7342d11f93faf15648993fa5b847f18bd22832fb9fa86fe3409fe502d8f67a7dfd97541a2036\
+901b21484daa1223df862d70b31dc841fe87beab733c0134f146569294b1ffdd1c4ff7f9e0276e9\
+2482f3221242e5e958e308a7a74d6d365d911917e367beeaa0a1577f859fd18fe167e80e95050b1\
+a6d14300a69fb7e301e0140ad3cb7fbcd0d791d67fe4771ab4f8cb1f3bfe4ddb02bd2859d93cccb\
+e01a4e66a13d3c28ecad4a4565b917a915fda61a5913a8357c15
+e = INTEGER:0x010001
+
+[tsa_extensions]
+subjectKeyIdentifier=SEQUENCE:tsa_subjectKeyIdentifier
+authorityKeyIdentifier=SEQUENCE:tsa_authorityKeyIdentifier
+keyUsage=SEQUENCE:tsa_keyUsage
+certificatePolicies=SEQUENCE:tsa_certificatePolicies
+crlDistributionPoints=SEQUENCE:tsa_crlDistributionPoints
+basicConstraints=SEQUENCE:tsa_basicConstraints
+extendedKeyUsage=SEQUENCE:tsa_extendedKeyUsage
+
+[tsa_subjectKeyIdentifier]
+extnID = OID:subjectKeyIdentifier
+extnValue = OCTWRAP,FORMAT:HEX,OCTETSTRING:\
+ba0bbbafe3254656fc138692d2154062db166a4a
+
+[tsa_authorityKeyIdentifier]
+extnID = OID:authorityKeyIdentifier
+extnValue = OCTWRAP,SEQUENCE:tsa_authorityKeyIdentifier_seq
+
+[tsa_authorityKeyIdentifier_seq]
+keyIdentifier = IMPLICIT:0,FORMAT:HEX,OCTETSTRING:\
+4c6d879382f72d2c0723a20fe0712d173f39f38f
+
+[tsa_keyUsage]
+extnID = OID:keyUsage
+critical = BOOLEAN:true
+extnValue = OCTWRAP,FORMAT:BITLIST,BITSTRING:0
+
+[tsa_certificatePolicies]
+extnID = OID:certificatePolicies
+extnValue = OCTWRAP,SEQUENCE:tsa_policyInformation
+
+[tsa_policyInformation]
+policyInformation = SEQUENCE:tsa_policyIdentifier
+
+[tsa_policyIdentifier]
+policyIdentifier = OID:\
+1.2.840.113556.1.8000.2554.47311.54169.61548.20478.40224.8393003.10972002.1.4
+
+[tsa_crlDistributionPoints]
+extnID = OID:crlDistributionPoints
+extnValue = OCTWRAP,SEQUENCE:tsa_distributionPoints
+
+[tsa_distributionPoints]
+distributionPoint = SEQUENCE:tsa_distributionPoint
+
+[tsa_distributionPoint]
+distributionPoint = EXPLICIT:0,EXPLICIT:0,IMPLICIT:6,IA5STRING:\
+http://tiny.cc/LatestCRL
+
+[tsa_basicConstraints]
+extnID = OID:basicConstraints
+critical = BOOLEAN:true
+extnValue = OCTWRAP,SEQUENCE
+
+[tsa_extendedKeyUsage]
+extnID = OID:extendedKeyUsage
+critical = BOOLEAN:true
+extnValue = OCTWRAP,SEQUENCE:tsa_keyPurposeIds
+
+[tsa_keyPurposeIds]
+tsa_keyPurposeId = OID:timeStamping
+
+[ca_certificate]
+tbsCertificate = SEQUENCE:ca_tbsCertificate
+signatureAlgorithm = SEQUENCE:ca_signatureAlgorithm
+signatureValue = FORMAT:HEX,BITSTRING:\
+96a482086e7a3aa7327cdb5413f10fa03edce80f4f608ec7720f68e6096c8636\
+5e85ec659f9233d5db27f87397e96ba4f41fd557785dd3577e416730cb2e4a20\
+cae0607d46a22d9102c70c56d30b32c1ded06d0b15f89b85964a57e891ad14f9\
+441cdc1d794f1086a62f1f766c280e9e2f5c9a355960787379c11fc0446860e7\
+9c870033e01b756e22dc101e1386b6e2459f55f820f875ed274d4e2ba669f2c8\
+632dcc95d69f28a45c384ea0489427f9f05b9f49a777fd100089e722c83c0103\
+048a43788babe2f5e8f2c01d177f69e92c6cb34e4a790b41e0b91a0ef32b978e\
+6fad454a0f0ea6af1b5461ae4f66460a3c303954709105b391dfda6d7c32c1bb
+
+[ca_tbsCertificate]
+version = EXPLICIT:0,INTEGER:2
+serialNumber = INTEGER:0xacaaff2f9de93c53
+signature = SEQUENCE:ca_signature
+issuer = SEQUENCE:ca_issuer
+validity = SEQUENCE:ca_validity
+subject = SEQUENCE:ca_subject
+subjectPublicKeyInfo = SEQUENCE:ca_subjectPublicKeyInfo
+extensions = EXPLICIT:3,SEQUENCE:ca_extensions
+
+[ca_signatureAlgorithm]
+algorithm = OID:sha256WithRSAEncryption
+parameters = NULL
+
+[ca_signature]
+algorithm = OID:sha256WithRSAEncryption
+parameters = NULL
+
+[ca_issuer]
+C = SET:ca_issuer_C_RDN
+O = SET:ca_issuer_O_RDN
+OU1 = SET:ca_issuer_OU1_RDN
+OU2 = SET:ca_issuer_OU2_RDN
+
+[ca_issuer_C_RDN]
+rdn = SEQUENCE:ca_issuer_C_ATV
+
+[ca_issuer_C_ATV]
+type = OID:countryName
+value = PRINTABLESTRING:FR
+
+[ca_issuer_O_RDN]
+rdn = SEQUENCE:ca_issuer_O_ATV
+
+[ca_issuer_O_ATV]
+type = OID:organizationName
+value = PRINTABLESTRING:Mon Entreprise
+
+[ca_issuer_OU1_RDN]
+rdn = SEQUENCE:ca_issuer_OU1_ATV
+
+[ca_issuer_OU1_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:0002 123456789
+
+[ca_issuer_OU2_RDN]
+rdn = SEQUENCE:ca_issuer_OU2_ATV
+
+[ca_issuer_OU2_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:OpenSSL Root CA
+
+[ca_validity]
+notBefore = UTCTIME:120407141248Z
+notAfter = UTCTIME:220407141248Z
+
+[ca_subject]
+C = SET:ca_subject_C_RDN
+O = SET:ca_subject_O_RDN
+OU1 = SET:ca_subject_OU1_RDN
+OU2 = SET:ca_subject_OU2_RDN
+
+[ca_subject_C_RDN]
+rdn = SEQUENCE:ca_subject_C_ATV
+
+[ca_subject_C_ATV]
+type = OID:countryName
+value = PRINTABLESTRING:FR
+
+[ca_subject_O_RDN]
+rdn = SEQUENCE:ca_subject_O_ATV
+
+[ca_subject_O_ATV]
+type = OID:organizationName
+value = PRINTABLESTRING:Mon Entreprise
+
+[ca_subject_OU1_RDN]
+rdn = SEQUENCE:ca_subject_OU1_ATV
+
+[ca_subject_OU1_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:0002 123456789
+
+[ca_subject_OU2_RDN]
+rdn = SEQUENCE:ca_subject_OU2_ATV
+
+[ca_subject_OU2_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:OpenSSL Root CA
+
+[ca_subjectPublicKeyInfo]
+algorithm = SEQUENCE:ca_rsaEncryption
+subjectPublicKey = BITWRAP,SEQUENCE:ca_subjectPublicKey
+
+[ca_rsaEncryption]
+algorithm = OID:rsaEncryption
+parameters = NULL
+
+[ca_subjectPublicKey]
+n = INTEGER:0x9c2dba6207f395a0b4b347310d149130744f1489e0b550f356c4e4804d76c883e\
+bfd6929e9c22903ea5688fc388dd238222caefa1f42c7aa0ff7c5789a2728783d19331c63b59ae5\
+63ffab84dc6e02191ea051643a735daac0c24ef06c8b84fc846e267d146cac41013e67744b920f7\
+49d6d8a4569dfad9c71b425c76fdceb300fea94207dadf75a86cf19a8bc00897b9e8381ecaaaede\
+388578e8ed76534da38e95c49230baf8b2fd1fb73eba1d30f392a090773d48d5f1f3de8a40cfe75\
+feb8100e42e48021ddae887da0f07ae649679c2ffe00c48888ceacd7f87d85448a4fb50d36fd7b6\
+8f844355b2fc5e8c2f6ecd9281cbf3b55bace0bfe3eabf3f85c1
+e = INTEGER:0x010001
+
+[ca_extensions]
+subjectKeyIdentifier=SEQUENCE:ca_subjectKeyIdentifier
+authorityKeyIdentifier=SEQUENCE:ca_authorityKeyIdentifier
+keyUsage=SEQUENCE:ca_keyUsage
+certificatePolicies=SEQUENCE:ca_certificatePolicies
+basicConstraints=SEQUENCE:ca_basicConstraints
+
+[ca_subjectKeyIdentifier]
+extnID = OID:subjectKeyIdentifier
+extnValue = OCTWRAP,FORMAT:HEX,OCTETSTRING:\
+4c6d879382f72d2c0723a20fe0712d173f39f38f
+
+[ca_authorityKeyIdentifier]
+extnID = OID:authorityKeyIdentifier
+extnValue = OCTWRAP,SEQUENCE:ca_authorityKeyIdentifier_seq
+
+[ca_authorityKeyIdentifier_seq]
+keyIdentifier = IMPLICIT:0,FORMAT:HEX,OCTETSTRING:\
+4c6d879382f72d2c0723a20fe0712d173f39f38f
+
+[ca_keyUsage]
+extnID = OID:keyUsage
+critical = BOOLEAN:true
+extnValue = OCTWRAP,FORMAT:BITLIST,BITSTRING:5,6
+
+[ca_certificatePolicies]
+extnID = OID:certificatePolicies
+extnValue = OCTWRAP,SEQUENCE:ca_policyInformation
+
+[ca_policyInformation]
+policyInformation = SEQUENCE:ca_policyIdentifier
+
+[ca_policyIdentifier]
+policyIdentifier = OID:\
+1.2.840.113556.1.8000.2554.47311.54169.61548.20478.40224.8393003.10972002.1.1
+
+[ca_basicConstraints]
+extnID = OID:basicConstraints
+critical = BOOLEAN:true
+extnValue = OCTWRAP,SEQUENCE:ca_basicConstraints_seq
+
+[ca_basicConstraints_seq]
+cA = BOOLEAN:true
+
+[ltv_certificateList]
+tbsCertList = SEQUENCE:ltv_crl_tbsCertList
+signatureAlgorithm = SEQUENCE:ltv_crl_signatureAlgorithm
+signatureValue = FORMAT:HEX,BITSTRING:\
+3e7f67f7af8ec194c84960394bd6471f4f30458a73b441863645660516e7dafe\
+f4adc61bb9d335bbaa4f6df76351322cadcfac28c14e9d3eef9da66ff66f1878\
+0848260cdef62d72965415a4a8e2a21498ca97e932fe92775a6de5a907eac2ab\
+fe2b7e3e72210c1beb120099f0ccd3b8968296e5fca592f6fa2d36929898377f\
+1264ef871b3286fdb994d9916fa897255eae8e5f202fc23305374e0aeff5510b\
+92315c6b7085eb532a283eb23140e4f9297cad3bdbb266b5ce0a2d88b7e5c7b3\
+66d5d1b6e16b0335d7e7159aacb7d99952d628757965f6867117e10eb2d8fbca\
+e112074b6b44c867a833864010cb55e5f2c9dd2801cb42acd77106c242dda08d
+
+[ltv_crl_tbsCertList]
+version = INTEGER:1
+signature = SEQUENCE:ltv_crl_signature
+issuer = SEQUENCE:ltv_crl_issuer
+thisUpdate = UTCTIME:120627194518Z
+nextUpdate = UTCTIME:120629194518Z
+crlExtensions = EXPLICIT:0,SEQUENCE:ltv_crl_crlExtensions
+
+[ltv_crl_signature]
+algorithm = OID:sha256WithRSAEncryption
+parameters = NULL
+
+[ltv_crl_issuer]
+C = SET:ltv_crl_issuer_C_RDN
+O = SET:ltv_crl_issuer_O_RDN
+OU1 = SET:ltv_crl_issuer_OU1_RDN
+OU2 = SET:ltv_crl_issuer_OU2_RDN
+
+[ltv_crl_issuer_C_RDN]
+rdn = SEQUENCE:ltv_crl_issuer_C_ATV
+
+[ltv_crl_issuer_C_ATV]
+type = OID:countryName
+value = PRINTABLESTRING:FR
+
+[ltv_crl_issuer_O_RDN]
+rdn = SEQUENCE:ltv_crl_issuer_O_ATV
+
+[ltv_crl_issuer_O_ATV]
+type = OID:organizationName
+value = PRINTABLESTRING:Mon Entreprise
+
+[ltv_crl_issuer_OU1_RDN]
+rdn = SEQUENCE:ltv_crl_issuer_OU1_ATV
+
+[ltv_crl_issuer_OU1_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:0002 123456789
+
+[ltv_crl_issuer_OU2_RDN]
+rdn = SEQUENCE:ltv_crl_issuer_OU2_ATV
+
+[ltv_crl_issuer_OU2_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:OpenSSL Root CA
+
+[ltv_crl_crlExtensions]
+authorityKeyIdentifier = SEQUENCE:ltv_crl_authorityKeyIdentifier
+crlNumber = SEQUENCE:ltv_crl_crlNumber
+
+[ltv_crl_authorityKeyIdentifier]
+extnID = OID:authorityKeyIdentifier
+extnValue = OCTWRAP,SEQUENCE:ltv_crl_authorityKeyIdentifier_seq
+
+[ltv_crl_authorityKeyIdentifier_seq]
+keyIdentifier = IMPLICIT:0,FORMAT:HEX,OCTETSTRING:\
+4c6d879382f72d2c0723a20fe0712d173f39f38f
+
+[ltv_crl_crlNumber]
+extnID = OID:crlNumber
+extnValue = OCTWRAP,INTEGER:9
+
+[ltv_crl_signatureAlgorithm]
+algorithm = OID:sha256WithRSAEncryption
+parameters = NULL

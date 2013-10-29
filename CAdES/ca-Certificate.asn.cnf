@@ -1,0 +1,166 @@
+asn1 = SEQUENCE:ca_certificate
+
+[ca_certificate]
+tbsCertificate = SEQUENCE:ca_tbsCertificate
+signatureAlgorithm = SEQUENCE:ca_signatureAlgorithm
+signatureValue = FORMAT:HEX,BITSTRING:\
+96a482086e7a3aa7327cdb5413f10fa03edce80f4f608ec7720f68e6096c8636\
+5e85ec659f9233d5db27f87397e96ba4f41fd557785dd3577e416730cb2e4a20\
+cae0607d46a22d9102c70c56d30b32c1ded06d0b15f89b85964a57e891ad14f9\
+441cdc1d794f1086a62f1f766c280e9e2f5c9a355960787379c11fc0446860e7\
+9c870033e01b756e22dc101e1386b6e2459f55f820f875ed274d4e2ba669f2c8\
+632dcc95d69f28a45c384ea0489427f9f05b9f49a777fd100089e722c83c0103\
+048a43788babe2f5e8f2c01d177f69e92c6cb34e4a790b41e0b91a0ef32b978e\
+6fad454a0f0ea6af1b5461ae4f66460a3c303954709105b391dfda6d7c32c1bb
+
+[ca_tbsCertificate]
+version = EXPLICIT:0,INTEGER:2
+serialNumber = INTEGER:0xacaaff2f9de93c53
+signature = SEQUENCE:ca_signature
+issuer = SEQUENCE:ca_issuer
+validity = SEQUENCE:ca_validity
+subject = SEQUENCE:ca_subject
+subjectPublicKeyInfo = SEQUENCE:ca_subjectPublicKeyInfo
+extensions = EXPLICIT:3,SEQUENCE:ca_extensions
+
+[ca_signatureAlgorithm]
+algorithm = OID:sha256WithRSAEncryption
+parameters = NULL
+
+[ca_signature]
+algorithm = OID:sha256WithRSAEncryption
+parameters = NULL
+
+[ca_issuer]
+C = SET:ca_issuer_C_RDN
+O = SET:ca_issuer_O_RDN
+OU1 = SET:ca_issuer_OU1_RDN
+OU2 = SET:ca_issuer_OU2_RDN
+
+[ca_issuer_C_RDN]
+rdn = SEQUENCE:ca_issuer_C_ATV
+
+[ca_issuer_C_ATV]
+type = OID:countryName
+value = PRINTABLESTRING:FR
+
+[ca_issuer_O_RDN]
+rdn = SEQUENCE:ca_issuer_O_ATV
+
+[ca_issuer_O_ATV]
+type = OID:organizationName
+value = PRINTABLESTRING:Mon Entreprise
+
+[ca_issuer_OU1_RDN]
+rdn = SEQUENCE:ca_issuer_OU1_ATV
+
+[ca_issuer_OU1_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:0002 123456789
+
+[ca_issuer_OU2_RDN]
+rdn = SEQUENCE:ca_issuer_OU2_ATV
+
+[ca_issuer_OU2_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:OpenSSL Root CA
+
+[ca_validity]
+notBefore = UTCTIME:120407141248Z
+notAfter = UTCTIME:220407141248Z
+
+[ca_subject]
+C = SET:ca_subject_C_RDN
+O = SET:ca_subject_O_RDN
+OU1 = SET:ca_subject_OU1_RDN
+OU2 = SET:ca_subject_OU2_RDN
+
+[ca_subject_C_RDN]
+rdn = SEQUENCE:ca_subject_C_ATV
+
+[ca_subject_C_ATV]
+type = OID:countryName
+value = PRINTABLESTRING:FR
+
+[ca_subject_O_RDN]
+rdn = SEQUENCE:ca_subject_O_ATV
+
+[ca_subject_O_ATV]
+type = OID:organizationName
+value = PRINTABLESTRING:Mon Entreprise
+
+[ca_subject_OU1_RDN]
+rdn = SEQUENCE:ca_subject_OU1_ATV
+
+[ca_subject_OU1_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:0002 123456789
+
+[ca_subject_OU2_RDN]
+rdn = SEQUENCE:ca_subject_OU2_ATV
+
+[ca_subject_OU2_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:OpenSSL Root CA
+
+[ca_subjectPublicKeyInfo]
+algorithm = SEQUENCE:ca_rsaEncryption
+subjectPublicKey = BITWRAP,SEQUENCE:ca_subjectPublicKey
+
+[ca_rsaEncryption]
+algorithm = OID:rsaEncryption
+parameters = NULL
+
+[ca_subjectPublicKey]
+n = INTEGER:0x9c2dba6207f395a0b4b347310d149130744f1489e0b550f356c4e4804d76c883e\
+bfd6929e9c22903ea5688fc388dd238222caefa1f42c7aa0ff7c5789a2728783d19331c63b59ae5\
+63ffab84dc6e02191ea051643a735daac0c24ef06c8b84fc846e267d146cac41013e67744b920f7\
+49d6d8a4569dfad9c71b425c76fdceb300fea94207dadf75a86cf19a8bc00897b9e8381ecaaaede\
+388578e8ed76534da38e95c49230baf8b2fd1fb73eba1d30f392a090773d48d5f1f3de8a40cfe75\
+feb8100e42e48021ddae887da0f07ae649679c2ffe00c48888ceacd7f87d85448a4fb50d36fd7b6\
+8f844355b2fc5e8c2f6ecd9281cbf3b55bace0bfe3eabf3f85c1
+e = INTEGER:0x010001
+
+[ca_extensions]
+subjectKeyIdentifier=SEQUENCE:ca_subjectKeyIdentifier
+authorityKeyIdentifier=SEQUENCE:ca_authorityKeyIdentifier
+keyUsage=SEQUENCE:ca_keyUsage
+certificatePolicies=SEQUENCE:ca_certificatePolicies
+basicConstraints=SEQUENCE:ca_basicConstraints
+
+[ca_subjectKeyIdentifier]
+extnID = OID:subjectKeyIdentifier
+extnValue = OCTWRAP,FORMAT:HEX,OCTETSTRING:\
+4c6d879382f72d2c0723a20fe0712d173f39f38f
+
+[ca_authorityKeyIdentifier]
+extnID = OID:authorityKeyIdentifier
+extnValue = OCTWRAP,SEQUENCE:ca_authorityKeyIdentifier_seq
+
+[ca_authorityKeyIdentifier_seq]
+keyIdentifier = IMPLICIT:0,FORMAT:HEX,OCTETSTRING:\
+4c6d879382f72d2c0723a20fe0712d173f39f38f
+
+[ca_keyUsage]
+extnID = OID:keyUsage
+critical = BOOLEAN:true
+extnValue = OCTWRAP,FORMAT:BITLIST,BITSTRING:5,6
+
+[ca_certificatePolicies]
+extnID = OID:certificatePolicies
+extnValue = OCTWRAP,SEQUENCE:ca_policyInformation
+
+[ca_policyInformation]
+policyInformation = SEQUENCE:ca_policyIdentifier
+
+[ca_policyIdentifier]
+policyIdentifier = OID:\
+1.2.840.113556.1.8000.2554.47311.54169.61548.20478.40224.8393003.10972002.1.1
+
+[ca_basicConstraints]
+extnID = OID:basicConstraints
+critical = BOOLEAN:true
+extnValue = OCTWRAP,SEQUENCE:ca_basicConstraints_seq
+
+[ca_basicConstraints_seq]
+cA = BOOLEAN:true

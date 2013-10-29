@@ -1,0 +1,2 @@
+@echo off
+xsltproc schematron/iso_dsdl_include.xsl validatedoc.sch | xsltproc schematron/iso_abstract_expand.xsl - | xsltproc schematron/iso_svrl_for_xslt1.xsl - | xsltproc --nonet - tp-confiance.xhtml

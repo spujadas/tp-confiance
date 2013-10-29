@@ -1,0 +1,9 @@
+[tsa]
+serial = tsa-ts.srl
+certs = ca-crt.pem
+crypto_device = builtin
+default_policy = \
+  1.2.840.113556.1.8000.2554.47311.54169.61548.20478.40224.8393003.10972002.1.5
+other_policies = \
+  1.2.840.113556.1.8000.2554.47311.54169.61548.20478.40224.8393003.10972002.1.5
+digests = sha256

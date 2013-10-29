@@ -1,0 +1,19 @@
+asn1 = SEQUENCE:tstInfo
+
+[tstInfo]
+version = INTEGER:1
+policy = OID:\
+1.2.840.113556.1.8000.2554.47311.54169.61548.20478.40224.8393003.10972002.1.5
+messageImprint = SEQUENCE:tsq_messageImprint
+serialNumber = INTEGER:1
+genTime = GENERALIZEDTIME:20120616211309Z
+nonce = INTEGER:0x4C815608C816687B
+
+[tsq_messageImprint]
+hashAlgorithm = SEQUENCE:tsq_hashAlgorithm
+hashedMessage = FORMAT:HEX,OCTETSTRING:\
+89bd92286d6c8014c06030b25f8b40cc1d5656d4b3b7b4831874f50d6f5557f3
+
+[tsq_hashAlgorithm]
+algorithm = OID:sha256
+parameters = NULL

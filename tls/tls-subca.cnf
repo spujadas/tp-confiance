@@ -1,0 +1,64 @@
+oid_file = ev-oid.tsv
+
+[tls_subca]
+database = tls-subca-db.txt
+serial = tls-subca-crt.srl
+crlnumber = tls-subca-crl.srl
+certificate = tls-subca-crt.pem
+private_key = tls-subca-key.pem
+default_md = sha256
+default_crl_hours = 48
+new_certs_dir = certs
+
+[tls_server_crt_dnpolicy]
+C = supplied
+O = supplied
+OU = supplied
+CN = supplied
+
+[tls_server_ev_crt_dnpolicy]
+jurC = supplied
+jurST = optional
+jurL = optional
+businessCategory = supplied
+serialNumber = supplied
+C = supplied
+postalCode = optional
+ST = supplied
+L = supplied
+street = optional
+O = supplied
+OU = supplied
+CN = supplied
+
+[tls_subca_crl_ext]
+authorityKeyIdentifier=keyid
+
+[tls_subca_ocsp_crt_ext]
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid
+keyUsage=critical,digitalSignature
+certificatePolicies=@tls_subca_ocsp_crt_pol
+crlDistributionPoints=URI:http://localhost/tls-subca-crl.der
+basicConstraints=critical,CA:FALSE
+extendedKeyUsage=OCSPSigning
+
+[tls_subca_ocsp_crt_pol]
+policyIdentifier = \
+  1.2.840.113556.1.8000.2554.29563.49294.43847.16581.44480.6974059.2493436.1.5
+CPS = http://tiny.cc/aj8hcw
+
+[tls_server_crt_ext]
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid
+keyUsage=critical,keyEncipherment,digitalSignature
+certificatePolicies=@tls_server_crt_pol
+crlDistributionPoints=URI:http://localhost/tls-subca-crl.der
+basicConstraints=critical,CA:FALSE
+extendedKeyUsage=serverAuth
+authorityInfoAccess=OCSP;URI:http://ocsp-subca
+
+[tls_server_crt_pol]
+policyIdentifier = \
+  1.2.840.113556.1.8000.2554.29563.49294.43847.16581.44480.6974059.2493436.1.3
+CPS = http://tiny.cc/aj8hcw

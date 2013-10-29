@@ -1,0 +1,150 @@
+asn1 = SEQUENCE:signatureTST
+
+[signatureTST]
+contentType = OID:pkcs7-signedData
+content = EXPLICIT:0,SEQUENCE:signatureTST_content
+
+[signatureTST_content]
+version = INTEGER:3
+digestAlgorithms = SET:signatureTST_digestAlgorithms
+encapContentInfo = SEQUENCE:signatureTST_encapContentInfo
+signerInfos = SET:signatureTST_signerInfos
+
+[signatureTST_digestAlgorithms]
+digestAlgorithm = SEQUENCE:signatureTST_digestAlgorithm
+
+[signatureTST_digestAlgorithm]
+algorithm = OID:sha1
+parameters = NULL
+
+[signatureTST_encapContentInfo]
+eContentType = OID:id-smime-ct-TSTInfo
+eContent = EXPLICIT:0,OCTWRAP,SEQUENCE:signatureTST_TSTInfo
+
+[signatureTST_TSTInfo]
+version = INTEGER:1
+policy = OID:\
+1.2.840.113556.1.8000.2554.47311.54169.61548.20478.40224.8393003.10972002.1.5
+messageImprint = SEQUENCE:signatureTST_messageImprint
+serialNumber = INTEGER:11
+genTime = GENERALIZEDTIME:20120626201609Z
+nonce = INTEGER:0x00e1e79be83f82b8af
+
+[signatureTST_messageImprint]
+hashAlgorithm = SEQUENCE:signatureTST_TSTInfo_hashAlgorithm
+hashedMessage = FORMAT:HEX,OCTETSTRING:\
+3da761db17a08fdb46d95cdcecf234c461dac887b4bf0a2d65d8c288621bc235
+
+[signatureTST_TSTInfo_hashAlgorithm]
+algorithm = OID:sha256
+parameters = NULL
+
+[signatureTST_signerInfos]
+signerInfo = SEQUENCE:signatureTST_signerInfo
+
+[signatureTST_signerInfo]
+version = INTEGER:1
+sid = SEQUENCE:signatureTST_sid
+digestAlgorithm = SEQUENCE:signatureTST_digestAlgorithm
+signedAttrs = IMPLICIT:0,SEQUENCE:signatureTST_signedAttrs
+signatureAlgorithm = SEQUENCE:signatureTST_signatureAlgorithm
+signature = FORMAT:HEX,OCTETSTRING:\
+1fa03c62cc5648513e8972b049841b32ea753b3763643edb1b2bf196a4b91b7d\
+b91c6a3bfc154e866bda19ab3da4d178dd8c454ded0fb808a5a23f2d80b6d81d\
+c04afc47bb6eff2edb000a7b195146a7d6c9b97ba1e6cf9ac472ec79ca7c387f\
+939de7dbfdd5011cc4f94dc207fb346f0ff4c039941a88f930c4ccc30989e9ba\
+08309699e5ac72270e3dab04683b54965da4c349106b1153fe1c64e393ded157\
+cdfc6aea6eebd2ffe3ef4dbf0c5d3ea6bf0f3ed2066b4cc23df95ba55921fa66\
+87ed16ffe87bfa0c58397cc9bed01f47905af2a2db48395004205edbfb8f06d3\
+6ceb384859c85cdee276672d25137c396def80cbd5b2317fc63aef3d8b47c659
+
+[signatureTST_sid]
+issuer = SEQUENCE:tsa_issuer
+serial = INTEGER:0xd3b94f04ddd1a040
+
+[tsa_issuer]
+C = SET:tsa_issuer_C_RDN
+O = SET:tsa_issuer_O_RDN
+OU1 = SET:tsa_issuer_OU1_RDN
+OU2 = SET:tsa_issuer_OU2_RDN
+
+[tsa_issuer_C_RDN]
+rdn = SEQUENCE:tsa_issuer_C_ATV
+
+[tsa_issuer_C_ATV]
+type = OID:countryName
+value = PRINTABLESTRING:FR
+
+[tsa_issuer_O_RDN]
+rdn = SEQUENCE:tsa_issuer_O_ATV
+
+[tsa_issuer_O_ATV]
+type = OID:organizationName
+value = PRINTABLESTRING:Mon Entreprise
+
+[tsa_issuer_OU1_RDN]
+rdn = SEQUENCE:tsa_issuer_OU1_ATV
+
+[tsa_issuer_OU1_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:0002 123456789
+
+[tsa_issuer_OU2_RDN]
+rdn = SEQUENCE:tsa_issuer_OU2_ATV
+
+[tsa_issuer_OU2_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:OpenSSL Root CA
+
+[signatureTST_digestAlgorithm]
+algorithm = OID:sha1
+parameters = NULL
+
+[signatureTST_signedAttrs]
+attr_contentType = SEQUENCE:signatureTST_attr_contentType
+attr_signingTime = SEQUENCE:signatureTST_attr_signingTime
+attr_messageDigest = SEQUENCE:signatureTST_attr_messageDigest
+attr_signingCertificate = SEQUENCE:signatureTST_attr_signingCertificate
+
+[signatureTST_attr_contentType]
+attrType = OID:contentType
+attrValues = SET:signatureTST_attr_contentType_values
+
+[signatureTST_attr_contentType_values]
+contentType = OID:id-smime-ct-TSTInfo
+
+[signatureTST_attr_signingTime]
+attrType = OID:signingTime
+attrValues = SET:signatureTST_attr_signingTime_values
+
+[signatureTST_attr_signingTime_values]
+attr_signingTime_value = UTCTIME:120626201609Z
+
+[signatureTST_attr_messageDigest]
+attrType = OID:messageDigest
+attrValues = SET:signatureTST_attr_messageDigest_values
+
+[signatureTST_attr_messageDigest_values]
+messageDigest = FORMAT:HEX,OCTETSTRING:\
+18fe06c583bd2a1226648ee7b09d25902d8c089c
+
+[signatureTST_attr_signingCertificate]
+attrType = OID:id-smime-aa-signingCertificate
+attrValues = SET:signatureTST_attr_signingCertificate_values
+
+[signatureTST_attr_signingCertificate_values]
+signingCertificate = SEQUENCE:signatureTST_signingCertificate_certs
+
+[signatureTST_signingCertificate_certs]
+certs = SEQUENCE:signatureTST_signingCertificate_essCertIDs
+
+[signatureTST_signingCertificate_essCertIDs]
+essCertID = SEQUENCE:signatureTST_signingCertificate_essCertID
+
+[signatureTST_signingCertificate_essCertID]
+certHash = FORMAT:HEX,OCTETSTRING:4328a6e719c924d2c414c24ae71950939561c509
+
+[signatureTST_signatureAlgorithm]
+algorithm = OID:rsaEncryption
+parameters = NULL
+

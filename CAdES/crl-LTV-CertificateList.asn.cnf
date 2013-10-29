@@ -1,0 +1,80 @@
+asn1 = SEQUENCE:ltv_certificateList
+
+[ltv_certificateList]
+tbsCertList = SEQUENCE:ltv_crl_tbsCertList
+signatureAlgorithm = SEQUENCE:ltv_crl_signatureAlgorithm
+signatureValue = FORMAT:HEX,BITSTRING:\
+3e7f67f7af8ec194c84960394bd6471f4f30458a73b441863645660516e7dafe\
+f4adc61bb9d335bbaa4f6df76351322cadcfac28c14e9d3eef9da66ff66f1878\
+0848260cdef62d72965415a4a8e2a21498ca97e932fe92775a6de5a907eac2ab\
+fe2b7e3e72210c1beb120099f0ccd3b8968296e5fca592f6fa2d36929898377f\
+1264ef871b3286fdb994d9916fa897255eae8e5f202fc23305374e0aeff5510b\
+92315c6b7085eb532a283eb23140e4f9297cad3bdbb266b5ce0a2d88b7e5c7b3\
+66d5d1b6e16b0335d7e7159aacb7d99952d628757965f6867117e10eb2d8fbca\
+e112074b6b44c867a833864010cb55e5f2c9dd2801cb42acd77106c242dda08d
+
+[ltv_crl_tbsCertList]
+version = INTEGER:1
+signature = SEQUENCE:ltv_crl_signature
+issuer = SEQUENCE:ltv_crl_issuer
+thisUpdate = UTCTIME:120627194518Z
+nextUpdate = UTCTIME:120629194518Z
+crlExtensions = EXPLICIT:0,SEQUENCE:ltv_crl_crlExtensions
+
+[ltv_crl_signature]
+algorithm = OID:sha256WithRSAEncryption
+parameters = NULL
+
+[ltv_crl_issuer]
+C = SET:ltv_crl_issuer_C_RDN
+O = SET:ltv_crl_issuer_O_RDN
+OU1 = SET:ltv_crl_issuer_OU1_RDN
+OU2 = SET:ltv_crl_issuer_OU2_RDN
+
+[ltv_crl_issuer_C_RDN]
+rdn = SEQUENCE:ltv_crl_issuer_C_ATV
+
+[ltv_crl_issuer_C_ATV]
+type = OID:countryName
+value = PRINTABLESTRING:FR
+
+[ltv_crl_issuer_O_RDN]
+rdn = SEQUENCE:ltv_crl_issuer_O_ATV
+
+[ltv_crl_issuer_O_ATV]
+type = OID:organizationName
+value = PRINTABLESTRING:Mon Entreprise
+
+[ltv_crl_issuer_OU1_RDN]
+rdn = SEQUENCE:ltv_crl_issuer_OU1_ATV
+
+[ltv_crl_issuer_OU1_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:0002 123456789
+
+[ltv_crl_issuer_OU2_RDN]
+rdn = SEQUENCE:ltv_crl_issuer_OU2_ATV
+
+[ltv_crl_issuer_OU2_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:OpenSSL Root CA
+
+[ltv_crl_crlExtensions]
+authorityKeyIdentifier = SEQUENCE:ltv_crl_authorityKeyIdentifier
+crlNumber = SEQUENCE:ltv_crl_crlNumber
+
+[ltv_crl_authorityKeyIdentifier]
+extnID = OID:authorityKeyIdentifier
+extnValue = OCTWRAP,SEQUENCE:ltv_crl_authorityKeyIdentifier_seq
+
+[ltv_crl_authorityKeyIdentifier_seq]
+keyIdentifier = IMPLICIT:0,FORMAT:HEX,OCTETSTRING:\
+4c6d879382f72d2c0723a20fe0712d173f39f38f
+
+[ltv_crl_crlNumber]
+extnID = OID:crlNumber
+extnValue = OCTWRAP,INTEGER:9
+
+[ltv_crl_signatureAlgorithm]
+algorithm = OID:sha256WithRSAEncryption
+parameters = NULL

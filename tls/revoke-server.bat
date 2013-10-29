@@ -1,0 +1,1 @@
+openssl ca -gencrl -cert tls-subca-crt.pem -keyfile tls-subca-key.pem -crlhours 48 -md sha256 -config tls-subca-crl.cnf -name tls_subca -crlexts tls_subca_ext -revoke tls-server-crt.pem -crl_reason keyCompromise -out tls-subca-crl.pem

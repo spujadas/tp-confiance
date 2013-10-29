@@ -1,0 +1,102 @@
+asn1 = SEQUENCE:certificateList
+
+[certificateList]
+tbsCertList = SEQUENCE:tbsCertList
+signatureAlgorithm = SEQUENCE:crl_signatureAlgorithm
+signatureValue = FORMAT:HEX,BITSTRING:\
+3d761827a09ce6628ff05dc2781d34e7b4a2c059cc844cdd95745d2929171670\
+815ad8a81b8fb71b39d3ac97976030a4116e83a7c52e3416e27d1925b624fd05\
+f1201a2488758fc14f7be440311e2d2490d1049c09fdfadbe913b37cd4204a70\
+606b3cdacc5ea2665d46d44f6189d9018a80e5dc7cf87e82398bf5a8e30ce53a\
+7a3458f5a48f184f5b9f83c962eabdc503289df775af605d9ac257aa4189ff52\
+ebb05097a6f7db40c210ae82e24d638d01dbd4fc8df90f3f32f510ffbf8253cf\
+dd85f3f27e902c7c1c456d1bca8ce3643f349bc0b60fccc31f25402eb3aa2b7e\
+ba11819a2001316d3c3d409b5501ba74bb0c0b8d14a2f2ef388b4bd484bd7e35
+
+[tbsCertList]
+version = INTEGER:1
+signature = SEQUENCE:crl_signature
+issuer = SEQUENCE:crl_issuer
+thisUpdate = UTCTIME:120616154442Z
+nextUpdate = UTCTIME:120618154442Z
+revokedCertificates = SEQUENCE:revokedCertificates
+crlExtensions = EXPLICIT:0,SEQUENCE:crlExtensions
+
+[crl_signature]
+algorithm = OID:sha256WithRSAEncryption
+parameters = NULL
+
+[crl_issuer]
+C = SET:crl_issuer_C_RDN
+O = SET:crl_issuer_O_RDN
+OU1 = SET:crl_issuer_OU1_RDN
+OU2 = SET:crl_issuer_OU2_RDN
+
+[crl_issuer_C_RDN]
+rdn = SEQUENCE:crl_issuer_C_ATV
+
+[crl_issuer_C_ATV]
+type = OID:countryName
+value = PRINTABLESTRING:FR
+
+[crl_issuer_O_RDN]
+rdn = SEQUENCE:crl_issuer_O_ATV
+
+[crl_issuer_O_ATV]
+type = OID:organizationName
+value = PRINTABLESTRING:Mon Entreprise
+
+[crl_issuer_OU1_RDN]
+rdn = SEQUENCE:crl_issuer_OU1_ATV
+
+[crl_issuer_OU1_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:0002 123456789
+
+[crl_issuer_OU2_RDN]
+rdn = SEQUENCE:crl_issuer_OU2_ATV
+
+[crl_issuer_OU2_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:OpenSSL Root CA
+
+[revokedCertificates]
+revokedCertificate = SEQUENCE:revokedCertificate_1
+
+[revokedCertificate_1]
+userCertificate = INTEGER:0x89fc7231aec956c0
+revocationDate = UTCTIME:120616153743Z
+crlEntryExtensions = SEQUENCE:crlEntryExtensions_1
+
+[crlEntryExtensions_1]
+CRLReason = SEQUENCE:CRLReason_1
+invalidityDate = SEQUENCE:invalidityDate_1
+
+[CRLReason_1]
+extnID = OID:CRLReason
+extnValue = OCTWRAP,ENUMERATED:1
+
+[invalidityDate_1]
+extnID = OID:invalidityDate
+extnValue = OCTWRAP,GENERALIZEDTIME:20120616172700Z
+
+[crlExtensions]
+authorityKeyIdentifier = SEQUENCE:crl_authorityKeyIdentifier
+crlNumber = SEQUENCE:crlNumber
+
+[crl_authorityKeyIdentifier]
+extnID = OID:authorityKeyIdentifier
+extnValue = OCTWRAP,SEQUENCE:crl_authorityKeyIdentifier_seq
+
+[crl_authorityKeyIdentifier_seq]
+keyIdentifier = IMPLICIT:0,FORMAT:HEX,OCTETSTRING:\
+4c6d879382f72d2c0723a20fe0712d173f39f38f
+
+[crlNumber]
+extnID = OID:crlNumber
+extnValue = OCTWRAP,INTEGER:2
+
+[crl_signatureAlgorithm]
+algorithm = OID:sha256WithRSAEncryption
+parameters = NULL
+

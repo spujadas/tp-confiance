@@ -1,0 +1,57 @@
+[tls_rootca]
+database = tls-rootca-db.txt
+serial = tls-rootca-crt.srl
+crlnumber = tls-rootca-crl.srl
+certificate = tls-rootca-crt.pem
+private_key = tls-rootca-key.pem
+default_md = sha256
+default_crl_hours = 48
+new_certs_dir = certs
+
+[tls_ca_crt_dnpolicy]
+C = supplied
+O = supplied
+OU = supplied
+
+[tls_server_crt_dnpolicy]
+C = supplied
+O = supplied
+OU = supplied
+CN = supplied
+
+[tls_rootca_crt_ext]
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid
+keyUsage=critical,keyCertSign,cRLSign
+certificatePolicies \
+=1.2.840.113556.1.8000.2554.29563.49294.43847.16581.44480.6974059.2493436.1.1,\
+ anyPolicy
+basicConstraints=critical,CA:TRUE
+
+[tls_rootca_crl_ext]
+authorityKeyIdentifier=keyid
+
+[tls_subca_crt_ext]
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid
+keyUsage=critical,keyCertSign,cRLSign
+certificatePolicies \
+=1.2.840.113556.1.8000.2554.29563.49294.43847.16581.44480.6974059.2493436.1.2,\
+ anyPolicy
+crlDistributionPoints=URI:http://localhost/tls-rootca-crl.der
+basicConstraints=critical,CA:TRUE
+authorityInfoAccess=OCSP;URI:http://ocsp-rootca
+
+[tls_rootca_ocsp_crt_ext]
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid
+keyUsage=critical,digitalSignature
+certificatePolicies=@tls_rootca_ocsp_crt_pol
+crlDistributionPoints=URI:http://localhost/tls-rootca-crl.der
+basicConstraints=critical,CA:FALSE
+extendedKeyUsage=OCSPSigning
+
+[tls_rootca_ocsp_crt_pol]
+policyIdentifier = \
+  1.2.840.113556.1.8000.2554.29563.49294.43847.16581.44480.6974059.2493436.1.4
+CPS = http://tiny.cc/aj8hcw

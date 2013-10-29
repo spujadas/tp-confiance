@@ -1,0 +1,28 @@
+asn1 = SET:signedAttrs
+
+[signedAttrs]
+attr_contentType = SEQUENCE:attr_contentType
+attr_signingTime = SEQUENCE:attr_signingTime
+attr_messageDigest = SEQUENCE:attr_messageDigest
+
+[attr_contentType]
+attrType = OID:contentType
+attrValues = SET:attr_contentType_values
+
+[attr_contentType_values]
+attr_contentType_value = OID:pkcs7-data
+
+[attr_signingTime]
+attrType = OID:signingTime
+attrValues = SET:attr_signingTime_values
+
+[attr_signingTime_values]
+attr_signingTime_value = UTCTIME:120427191932Z
+
+[attr_messageDigest]
+attrType = OID:messageDigest
+attrValues = SET:attr_messageDigest_values
+
+[attr_messageDigest_values]
+attr_messageDigest_value = FORMAT:HEX,OCTETSTRING:\
+89bd92286d6c8014c06030b25f8b40cc1d5656d4b3b7b4831874f50d6f5557f3

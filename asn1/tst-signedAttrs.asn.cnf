@@ -1,0 +1,50 @@
+asn1 = SET:tst_signedAttrs
+
+[tst_signedAttrs]
+attr_contentType = SEQUENCE:tst_attr_contentType
+attr_signingTime = SEQUENCE:tst_attr_signingTime
+attr_messageDigest = SEQUENCE:tst_attr_messageDigest
+attr_signingCertificate = SEQUENCE:tst_attr_signingCertificate
+
+[tst_attr_contentType]
+attrType = OID:contentType
+attrValues = SET:tst_attr_contentType_values
+
+[tst_attr_contentType_values]
+contentType = OID:id-smime-ct-TSTInfo
+
+[tst_attr_signingTime]
+attrType = OID:signingTime
+attrValues = SET:tst_attr_signingTime_values
+
+[tst_attr_signingTime_values]
+attr_signingTime_value = UTCTIME:120616211309Z
+
+[tst_attr_messageDigest]
+attrType = OID:messageDigest
+attrValues = SET:tst_attr_messageDigest_values
+
+[tst_attr_messageDigest_values]
+messageDigest = FORMAT:HEX,OCTETSTRING:\
+0f6d6f384c1cba1e97921fff3d192920af7feae8
+
+[tst_attr_signingCertificate]
+attrType = OID:id-smime-aa-signingCertificate
+attrValues = SET:tst_attr_signingCertificate_values
+
+[tst_attr_signingCertificate_values]
+signingCertificate = SEQUENCE:tst_signingCertificate_certs
+
+[tst_signingCertificate_certs]
+certs = SEQUENCE:tst_signingCertificate_essCertIDs
+
+[tst_signingCertificate_essCertIDs]
+essCertID = SEQUENCE:tst_signingCertificate_essCertID
+
+[tst_signingCertificate_essCertID]
+certHash = FORMAT:HEX,OCTETSTRING:4328a6e719c924d2c414c24ae71950939561c509
+
+[tst_signerInfo_signatureAlgorithm]
+algorithm = OID:rsaEncryption
+parameters = NULL
+

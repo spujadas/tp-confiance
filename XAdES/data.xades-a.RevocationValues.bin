@@ -1,0 +1,16 @@
+<xades:RevocationValues xmlns:xades="http://uri.etsi.org/01903/v1.3.2#">
+              <xades:CRLValues>
+                <xades:EncapsulatedCRLValue>
+MIIB0zCBvAIBATANBgkqhkiG9w0BAQsFADBZMQswCQYDVQQGEwJGUjEXMBUGA1UE
+ChMOTW9uIEVudHJlcHJpc2UxFzAVBgNVBAsTDjAwMDIgMTIzNDU2Nzg5MRgwFgYD
+VQQLEw9PcGVuU1NMIFJvb3QgQ0EXDTEyMDYyMjIwMjg1NloXDTEyMDYyNDIwMjg1
+NlqgLzAtMB8GA1UdIwQYMBaAFExth5OC9y0sByOiD+BxLRc/OfOPMAoGA1UdFAQD
+AgEDMA0GCSqGSIb3DQEBCwUAA4IBAQB34WzWDW4Al2Za/JMZ68CVpMnSpD5mzeGm
+vvT/LRHH0yR6xCCfiwdorCF2rYyYrg3lynnrfSInYVrZclfQWF5TkwBfQONebY+Q
+4NEcXiKfkYJuca5W44YnIUfHDEQVVD1tTqbDECxcFmG/UukqflprXmMHra1RdI8h
+4SrK7aac5yJiTxC+QJhOVDybpyz7Tco3lDpH4uobv3OCZD0+20ZBfEzy5Kce3PUV
+7h+XGW/2/fRXxvBk3DVVSyPAqq069trZAPQiM6tproFGPJAXA3FgTHEqxGTIPpEf
+WXqkwe2GzFTz6bxBd4qWEPEUk0ViHDB+FHdZshL5hDH8e+gEATF+
+                </xades:EncapsulatedCRLValue>
+              </xades:CRLValues>
+            </xades:RevocationValues>

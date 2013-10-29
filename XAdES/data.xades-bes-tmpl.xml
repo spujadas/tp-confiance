@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <data>Texte en clair</data>
+  <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="Id_Signature">
+    <ds:SignedInfo>
+      <ds:CanonicalizationMethod
+        Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+      <ds:SignatureMethod
+        Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <ds:Reference URI="">
+        <ds:Transforms>
+          <ds:Transform
+            Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+          <ds:Transform
+            Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+        </ds:Transforms>
+        <ds:DigestMethod 
+          Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+        <ds:DigestValue/>
+      </ds:Reference>
+      <ds:Reference URI="#Id_SignedProperties">
+        <ds:Transforms>
+          <ds:Transform 
+            Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+        </ds:Transforms>
+        <ds:DigestMethod 
+          Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+        <ds:DigestValue/>
+      </ds:Reference>
+    </ds:SignedInfo>
+    <ds:SignatureValue/>
+    <ds:KeyInfo>
+      <ds:X509Data>
+        <ds:X509Certificate/>
+      </ds:X509Data>
+    </ds:KeyInfo>
+    <ds:Object>
+      <xades:QualifyingProperties Target="#Id_Signature" 
+        xmlns:xades="http://uri.etsi.org/01903/v1.3.2#">
+        <xades:SignedProperties Id="Id_SignedProperties">
+          <xades:SignedSignatureProperties>
+            <xades:SigningTime>2012-06-17T15:23:00Z</xades:SigningTime>
+            <xades:SignatureProductionPlace>
+              <xades:CountryName>France</xades:CountryName>
+            </xades:SignatureProductionPlace>
+          </xades:SignedSignatureProperties>
+        </xades:SignedProperties>
+      </xades:QualifyingProperties>
+    </ds:Object>
+  </ds:Signature>
+</root>

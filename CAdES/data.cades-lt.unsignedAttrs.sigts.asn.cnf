@@ -1,0 +1,468 @@
+asn1 = SEQUENCE:attr_signatureTimeStamp
+
+[contentInfo]
+contentType = OID:pkcs7-signedData
+content = EXPLICIT:0,SEQUENCE:content
+
+[content]
+version = INTEGER:1
+digestAlgorithms = SET:content_digestAlgorithms
+encapContentInfo = SEQUENCE:encapContentInfo
+certificates = IMPLICIT:0,SEQUENCE:certificates
+signerInfos = SET:signerInfos
+
+[content_digestAlgorithms]
+digestAlgorithm = SEQUENCE:content_digestAlgorithm
+
+[content_digestAlgorithm]
+algorithm = OID:sha256
+parameters = NULL
+
+[encapContentInfo]
+eContentType = OID:pkcs7-data
+
+[certificates]
+certificate = SEQUENCE:ee_certificate
+
+[ee_certificate]
+tbsCertificate = SEQUENCE:ee_tbsCertificate
+signatureAlgorithm  = SEQUENCE:ee_signatureAlgorithm
+signatureValue=FORMAT:HEX,BITSTRING:\
+092fbabfd986fd029c8a223ba0f2e481603a1a4ed698c179635e2452b8b3d9ae\
+61074a802f1f3338bb19a0a09665a9dcbdbcbfd3f3cc8f410e634fa2b9775631\
+72b0695b17394d50e6db308d62070d3873d264dc0d203c2fd652f2ccb798cce2\
+2c451ba911c6a8949ec7c07034dff6382008325eda736057f9347bd3a90d7a67\
+0607d4455cf6d91c94a87937d9e3e5b95c30b448dae857a35d7b4ea5c9360e1f\
+155a598966cfe8a6c2f6b553ec433deaad75fa28a89a35985723874665999f8a\
+8e7d19136dad9f0c2e52a0ed94a80c0367a83f444368453088baa61322cd6595\
+08dbe499438568e9767473c891fe29af0e134dafb8d682eb241f41ea77cf6e8b
+
+[ee_tbsCertificate]
+version = EXPLICIT:0,INTEGER:2
+serialNumber = INTEGER:0xDCD21EE5A2B7DFC7
+signature = SEQUENCE:ee_signature
+issuer = SEQUENCE:ee_issuer
+validity = SEQUENCE:ee_validity
+subject = SEQUENCE:ee_subject
+subjectPublicKeyInfo = SEQUENCE:ee_subjectPublicKeyInfo
+extensions = EXPLICIT:3,SEQUENCE:ee_extensions
+
+[ee_signatureAlgorithm]
+algorithm = OID:sha256WithRSAEncryption
+parameters = NULL
+
+[ee_signature]
+algorithm = OID:sha256WithRSAEncryption
+parameters = NULL
+
+[ee_issuer]
+C = SET:ee_issuer_C_RDN
+O = SET:ee_issuer_O_RDN
+OU1 = SET:ee_issuer_OU1_RDN
+OU2 = SET:ee_issuer_OU2_RDN
+
+[ee_issuer_C_RDN]
+rdn = SEQUENCE:ee_issuer_C_ATV
+
+[ee_issuer_C_ATV]
+type = OID:countryName
+value = PRINTABLESTRING:FR
+
+[ee_issuer_O_RDN]
+rdn = SEQUENCE:ee_issuer_O_ATV
+
+[ee_issuer_O_ATV]
+type = OID:organizationName
+value = PRINTABLESTRING:Mon Entreprise
+
+[ee_issuer_OU1_RDN]
+rdn = SEQUENCE:ee_issuer_OU1_ATV
+
+[ee_issuer_OU1_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:0002 123456789
+
+[ee_issuer_OU2_RDN]
+rdn = SEQUENCE:ee_issuer_OU2_ATV
+
+[ee_issuer_OU2_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:OpenSSL Root CA
+
+[ee_validity]
+notBefore = UTCTIME:120407151747Z
+notAfter = UTCTIME:140407151747Z
+
+[ee_subject]
+C = SET:ee_subject_C_RDN
+O = SET:ee_subject_O_RDN
+OU = SET:ee_subject_OU_RDN
+CN = SET:ee_subject_CN_RDN
+
+[ee_subject_C_RDN]
+rdn = SEQUENCE:ee_subject_C_ATV
+
+[ee_subject_C_ATV]
+type = OID:countryName
+value = PRINTABLESTRING:FR
+
+[ee_subject_O_RDN]
+rdn = SEQUENCE:ee_subject_O_ATV
+
+[ee_subject_O_ATV]
+type = OID:organizationName
+value = FORMAT:UTF8,UTF8String:Mon Entité
+
+[ee_subject_OU_RDN]
+rdn = SEQUENCE:ee_subject_OU_ATV
+
+[ee_subject_OU_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:0002 987654321
+
+[ee_subject_CN_RDN]
+rdn = SEQUENCE:ee_subject_CN_ATV
+
+[ee_subject_CN_ATV]
+type = OID:commonName
+value = FORMAT:UTF8,UTF8String:Prénom Nom
+
+[ee_subjectPublicKeyInfo]
+algorithm = SEQUENCE:ee_rsaEncryption
+subjectPublicKey = BITWRAP,SEQUENCE:ee_subjectPublicKey
+
+[ee_rsaEncryption]
+algorithm = OID:rsaEncryption
+parameters = NULL
+
+[ee_subjectPublicKey]
+n = INTEGER:0xB86F48F999F19971C66F8064D1CA0C1A6EC88AF3B939FD07088D97B2BE1E2795B\
+D1E8688FF0E6172B73D37A5B81935C7C3AE57A27E5D46F38383089C4410EDA95D1EFA99C4931586\
+CE57490060003902034A358E07F90FF2D347342E6BF95139E06E63F3C997874F4B35E8DA3A87F4F\
+5188A8674C1B11BA0F329FC5C2EB6CD26F465751C3789C6B97E3963368AA1881910262BA9D8FEE7\
+9D3434E722A2302DF4E82D3979355B6254D032A3A52C317FA5D298403693A6C3A1665F3FF6FCED4\
+54A064597F5EF417E68BB7FD2D3892B4F04CD359F2B0133460012BE7B5282DB23AAD23FFB37640F\
+655F98F3806F10D9B4BF752F41A7E5BD173AB8345B81FD5C8DD1
+e = INTEGER:0x010001
+
+[ee_extensions]
+subjectKeyIdentifier=SEQUENCE:ee_subjectKeyIdentifier
+authorityKeyIdentifier=SEQUENCE:ee_authorityKeyIdentifier
+keyUsage=SEQUENCE:ee_keyUsage
+certificatePolicies=SEQUENCE:ee_certificatePolicies
+crlDistributionPoints=SEQUENCE:ee_crlDistributionPoints
+basicConstraints=SEQUENCE:ee_basicConstraints
+
+[ee_subjectKeyIdentifier]
+extnID = OID:subjectKeyIdentifier
+extnValue = OCTWRAP,FORMAT:HEX,OCTETSTRING:\
+8b28e4fe7743b005e3671f8aef13582bcb464060
+
+[ee_authorityKeyIdentifier]
+extnID = OID:authorityKeyIdentifier
+extnValue = OCTWRAP,SEQUENCE:ee_authorityKeyIdentifier_seq
+
+[ee_authorityKeyIdentifier_seq]
+keyIdentifier = IMPLICIT:0,FORMAT:HEX,OCTETSTRING:\
+4c6d879382f72d2c0723a20fe0712d173f39f38f
+
+[ee_keyUsage]
+extnID = OID:keyUsage
+critical = BOOLEAN:true
+extnValue = OCTWRAP,FORMAT:BITLIST,BITSTRING:0,1
+
+[ee_certificatePolicies]
+extnID = OID:certificatePolicies
+extnValue = OCTWRAP,SEQUENCE:ee_policyInformation
+
+[ee_policyInformation]
+policyInformation = SEQUENCE:ee_policyIdentifier
+
+[ee_policyIdentifier]
+policyIdentifier = OID:\
+1.2.840.113556.1.8000.2554.47311.54169.61548.20478.40224.8393003.10972002.1.2
+
+[ee_crlDistributionPoints]
+extnID = OID:crlDistributionPoints
+extnValue = OCTWRAP,SEQUENCE:ee_distributionPoints
+
+[ee_distributionPoints]
+distributionPoint = SEQUENCE:ee_distributionPoint
+
+[ee_distributionPoint]
+distributionPoint = EXPLICIT:0,EXPLICIT:0,IMPLICIT:6,IA5STRING:\
+http://tiny.cc/LatestCRL
+
+[ee_basicConstraints]
+extnID = OID:basicConstraints
+critical = BOOLEAN:true
+extnValue = OCTWRAP,SEQUENCE
+
+[signerInfos]
+signerInfo = SEQUENCE:signerInfo
+
+[signerInfo]
+version = INTEGER:1
+sid = SEQUENCE:sid
+digestAlgorithm  = SEQUENCE:signerInfo_digestAlgorithm
+signedAttrs = IMPLICIT:0,SET:signedAttrs
+signatureAlgorithm = SEQUENCE:signatureAlgorithm 
+signature = FORMAT:HEX,OCTETSTRING:\
+a28aff00ebade94eb7e3e3e29909b23ad4e85a53f216c1a7bfd48145e7c7a279\
+8327eda577f831ac90c29ed12d4729afd7846a715f7ce5343139563bd391fce4\
+8511523d00f077cc1cd1921673f6f2dd273bf256531c860eb021fb18e1fc8347\
+9688a5bc934015fd6cbb9a5dd4c872d87c0fb0a946462e3c59aef16c7b1f2a3a\
+b9d388a9cb84ce37edf3ffb7c4c189e9d47ded1d89c82c577928afaa283b9709\
+48a9ab4ac5cdbc4a846947746e252c8d7262416a1286c6a44ec9d48ded51cf14\
+7e74719191b1f5ce2e21af4a8a2af938d98767ee1dde29b04798c8e0d1c6d07d\
+b8d2b960e0e443da61248b4189fd62de224866dbfa02d2b7f9ca1cb4d9e5e7b6
+unsignedAttrs = IMPLICIT:1,SET:unsignedAttrs
+
+[sid]
+issuer = SEQUENCE:issuer
+serialNumber = INTEGER:0xdcd21ee5a2b7dfc7
+
+[issuer]
+issuer_C_RDN = SET:issuer_C_RDN
+issuer_O_RDN = SET:issuer_O_RDN
+issuer_OU1_RDN = SET:issuer_OU1_RDN
+issuer_OU2_RDN = SET:issuer_OU2_RDN
+
+[issuer_C_RDN]
+issuer_C_ATV = SEQUENCE:issuer_C_ATV
+
+[issuer_C_ATV]
+type = OID:countryName
+value = PRINTABLESTRING:FR
+
+[issuer_O_RDN]
+issuer_O_ATV = SEQUENCE:issuer_O_ATV
+
+[issuer_O_ATV]
+type = OID:organizationName
+value = PRINTABLESTRING:Mon Entreprise
+
+[issuer_OU1_RDN]
+issuer_OU1_ATV = SEQUENCE:issuer_OU1_ATV
+
+[issuer_OU1_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:0002 123456789
+
+[issuer_OU2_RDN]
+issuer_OU2_ATV = SEQUENCE:issuer_OU2_ATV
+
+[issuer_OU2_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:OpenSSL Root CA
+
+[signerInfo_digestAlgorithm]
+algorithm = OID:sha256
+parameters = NULL
+
+[signedAttrs]
+attr_contentType = SEQUENCE:attr_contentType
+attr_signingTime = SEQUENCE:attr_signingTime
+attr_messageDigest = SEQUENCE:attr_messageDigest
+attr_signingCertificateV2 = SEQUENCE:attr_signingCertificateV2
+
+[attr_contentType]
+attrType = OID:contentType
+attrValues = SET:attr_contentType_values
+
+[attr_contentType_values]
+attr_contentType_value = OID:pkcs7-data
+
+[attr_signingTime]
+attrType = OID:signingTime
+attrValues = SET:attr_signingTime_values
+
+[attr_signingTime_values]
+attr_signingTime_value = UTCTIME:120427191932Z
+
+[attr_messageDigest]
+attrType = OID:messageDigest
+attrValues = SET:attr_messageDigest_values
+
+[attr_messageDigest_values]
+attr_messageDigest_value = FORMAT:HEX,OCTETSTRING:\
+89bd92286d6c8014c06030b25f8b40cc1d5656d4b3b7b4831874f50d6f5557f3
+
+[attr_signingCertificateV2]
+attrType = OID:SigningCertificateV2
+attrValues = SET:attr_signingCertificateV2_values
+
+[attr_signingCertificateV2_values]
+attr_signingCertificateV2_value = SEQUENCE:signingCertificateV2
+
+[signingCertificateV2]
+certs = SEQUENCE:signingCertificateV2_ESSCertIDv2s
+
+[signingCertificateV2_ESSCertIDv2s]
+signingCertificateV2_ESSCertIDv2 = SEQUENCE:signingCertificateV2_ESSCertIDv2
+
+[signingCertificateV2_ESSCertIDv2]
+certHash = FORMAT:HEX,OCTETSTRING:\
+d2df6647707afb2911a96e3d619aeebe79e2141db177fcd127f3295075e3e39d
+
+[signatureAlgorithm]
+algorithm = OID:rsaEncryption
+parameters = NULL
+
+[unsignedAttrs]
+attr_signatureTimeStamp = SEQUENCE:attr_signatureTimeStamp
+
+[attr_signatureTimeStamp]
+attrType = OID:SignatureTimeStampToken
+attrValues = SET:attr_signatureTimeStamp_values
+
+[attr_signatureTimeStamp_values]
+attr_contentType_value = SEQUENCE:signatureTST
+
+[signatureTST]
+contentType = OID:pkcs7-signedData
+content = EXPLICIT:0,SEQUENCE:signatureTST_content
+
+[signatureTST_content]
+version = INTEGER:3
+digestAlgorithms = SET:signatureTST_digestAlgorithms
+encapContentInfo = SEQUENCE:signatureTST_encapContentInfo
+signerInfos = SET:signatureTST_signerInfos
+
+[signatureTST_digestAlgorithms]
+digestAlgorithm = SEQUENCE:signatureTST_digestAlgorithm
+
+[signatureTST_digestAlgorithm]
+algorithm = OID:sha1
+parameters = NULL
+
+[signatureTST_encapContentInfo]
+eContentType = OID:id-smime-ct-TSTInfo
+eContent = EXPLICIT:0,OCTWRAP,SEQUENCE:signatureTST_TSTInfo
+
+[signatureTST_TSTInfo]
+version = INTEGER:1
+policy = OID:\
+1.2.840.113556.1.8000.2554.47311.54169.61548.20478.40224.8393003.10972002.1.5
+messageImprint = SEQUENCE:signatureTST_messageImprint
+serialNumber = INTEGER:11
+genTime = GENERALIZEDTIME:20120626201609Z
+nonce = INTEGER:0x00e1e79be83f82b8af
+
+[signatureTST_messageImprint]
+hashAlgorithm = SEQUENCE:signatureTST_TSTInfo_hashAlgorithm
+hashedMessage = FORMAT:HEX,OCTETSTRING:\
+3da761db17a08fdb46d95cdcecf234c461dac887b4bf0a2d65d8c288621bc235
+
+[signatureTST_TSTInfo_hashAlgorithm]
+algorithm = OID:sha256
+parameters = NULL
+
+[signatureTST_signerInfos]
+signerInfo = SEQUENCE:signatureTST_signerInfo
+
+[signatureTST_signerInfo]
+version = INTEGER:1
+sid = SEQUENCE:signatureTST_sid
+digestAlgorithm = SEQUENCE:signatureTST_digestAlgorithm
+signedAttrs = IMPLICIT:0,SEQUENCE:signatureTST_signedAttrs
+signatureAlgorithm = SEQUENCE:signatureTST_signatureAlgorithm
+signature = FORMAT:HEX,OCTETSTRING:\
+1fa03c62cc5648513e8972b049841b32ea753b3763643edb1b2bf196a4b91b7d\
+b91c6a3bfc154e866bda19ab3da4d178dd8c454ded0fb808a5a23f2d80b6d81d\
+c04afc47bb6eff2edb000a7b195146a7d6c9b97ba1e6cf9ac472ec79ca7c387f\
+939de7dbfdd5011cc4f94dc207fb346f0ff4c039941a88f930c4ccc30989e9ba\
+08309699e5ac72270e3dab04683b54965da4c349106b1153fe1c64e393ded157\
+cdfc6aea6eebd2ffe3ef4dbf0c5d3ea6bf0f3ed2066b4cc23df95ba55921fa66\
+87ed16ffe87bfa0c58397cc9bed01f47905af2a2db48395004205edbfb8f06d3\
+6ceb384859c85cdee276672d25137c396def80cbd5b2317fc63aef3d8b47c659
+
+[signatureTST_sid]
+issuer = SEQUENCE:tsa_issuer
+serial = INTEGER:0xd3b94f04ddd1a040
+
+[tsa_issuer]
+C = SET:tsa_issuer_C_RDN
+O = SET:tsa_issuer_O_RDN
+OU1 = SET:tsa_issuer_OU1_RDN
+OU2 = SET:tsa_issuer_OU2_RDN
+
+[tsa_issuer_C_RDN]
+rdn = SEQUENCE:tsa_issuer_C_ATV
+
+[tsa_issuer_C_ATV]
+type = OID:countryName
+value = PRINTABLESTRING:FR
+
+[tsa_issuer_O_RDN]
+rdn = SEQUENCE:tsa_issuer_O_ATV
+
+[tsa_issuer_O_ATV]
+type = OID:organizationName
+value = PRINTABLESTRING:Mon Entreprise
+
+[tsa_issuer_OU1_RDN]
+rdn = SEQUENCE:tsa_issuer_OU1_ATV
+
+[tsa_issuer_OU1_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:0002 123456789
+
+[tsa_issuer_OU2_RDN]
+rdn = SEQUENCE:tsa_issuer_OU2_ATV
+
+[tsa_issuer_OU2_ATV]
+type = OID:organizationalUnitName
+value = PRINTABLESTRING:OpenSSL Root CA
+
+[signatureTST_digestAlgorithm]
+algorithm = OID:sha1
+parameters = NULL
+
+[signatureTST_signedAttrs]
+attr_contentType = SEQUENCE:signatureTST_attr_contentType
+attr_signingTime = SEQUENCE:signatureTST_attr_signingTime
+attr_messageDigest = SEQUENCE:signatureTST_attr_messageDigest
+attr_signingCertificate = SEQUENCE:signatureTST_attr_signingCertificate
+
+[signatureTST_attr_contentType]
+attrType = OID:contentType
+attrValues = SET:signatureTST_attr_contentType_values
+
+[signatureTST_attr_contentType_values]
+contentType = OID:id-smime-ct-TSTInfo
+
+[signatureTST_attr_signingTime]
+attrType = OID:signingTime
+attrValues = SET:signatureTST_attr_signingTime_values
+
+[signatureTST_attr_signingTime_values]
+attr_signingTime_value = UTCTIME:120626201609Z
+
+[signatureTST_attr_messageDigest]
+attrType = OID:messageDigest
+attrValues = SET:signatureTST_attr_messageDigest_values
+
+[signatureTST_attr_messageDigest_values]
+messageDigest = FORMAT:HEX,OCTETSTRING:\
+18fe06c583bd2a1226648ee7b09d25902d8c089c
+
+[signatureTST_attr_signingCertificate]
+attrType = OID:id-smime-aa-signingCertificate
+attrValues = SET:signatureTST_attr_signingCertificate_values
+
+[signatureTST_attr_signingCertificate_values]
+signingCertificate = SEQUENCE:signatureTST_signingCertificate_certs
+
+[signatureTST_signingCertificate_certs]
+certs = SEQUENCE:signatureTST_signingCertificate_essCertIDs
+
+[signatureTST_signingCertificate_essCertIDs]
+essCertID = SEQUENCE:signatureTST_signingCertificate_essCertID
+
+[signatureTST_signingCertificate_essCertID]
+certHash = FORMAT:HEX,OCTETSTRING:4328a6e719c924d2c414c24ae71950939561c509
+
+[signatureTST_signatureAlgorithm]
+algorithm = OID:rsaEncryption
+parameters = NULL
