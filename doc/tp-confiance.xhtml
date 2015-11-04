@@ -1826,7 +1826,7 @@ parameters = NULL</pre>
   | openssl verify -CAfile ca-crt.pem</strong>
 stdin: OK</pre>
 
-<h1 id="lcr">Liste de certficats révoqués</h1>
+<h1 id="lcr">Liste de certificats révoqués</h1>
 
 <p>Ce chapitre décrit la génération d'une liste de certificats révoqués (LCR, ou CRL pour <i>certificate
 revocation list</i>) par l'autorité de certification créée dans le chapitre précédent. Le profil utilisé est celui du RGS.</p>
@@ -5959,7 +5959,7 @@ SHA256(LongTermValidation.TimeStamp.tst)= 895ed9b7f0492a88a69519617fa55938b8ace5
 SHA256(LongTermValidation.TimeStampToken.der)= 895ed9b7f0492a88a69519617fa55938b
 8ace56afb1a004c55d221880472d9de</pre>
 
-<h3 id="cades-lt-certificat-horodatage">Constitution de la structure <code>Certificate</code> pour le certficat de l'unité d'horodatage</h3>
+<h3 id="cades-lt-certificat-horodatage">Constitution de la structure <code>Certificate</code> pour le certificat de l'unité d'horodatage</h3>
 
 <p>Copier le fichier <code>ee-Certificate.asn.cnf</code>, constitué dans la section <a href="#finalisation-certificat" class="section"/>, sous le nom <code>tsa-Certificate.asn.cnf</code>. Dans ce nouveau fichier, remplacer globalement la chaîne de caractères <code>ee_</code> par la chaîne <code>tsa_</code>, puis effectuer les modifications mises en évidence en gras ci-dessous.</p>
 
@@ -6090,7 +6090,7 @@ c87cb</pre>
 <pre><strong>$ od -tx1 -An data.cades-lt.certificate.tsa.sha256 | tr -d " \n\r"</strong>
 68b22f49939e398872086e8e36c83b34a4e45ff521ae86c99d165817322c87cb</pre></div>
 
-<h3 id="cades-lt-certificat-ac">Constitution de la structure <code>Certificate</code> pour le certficat de l'autorité de certification</h3>
+<h3 id="cades-lt-certificat-ac">Constitution de la structure <code>Certificate</code> pour le certificat de l'autorité de certification</h3>
 
 <p>Par analogie avec la méthode de constitution de la structure <code>Certificate</code> pour l'unité d'horodatage, copier le fichier <code>ee-Certificate.asn.cnf</code> sous le nom <code>ca-Certificate.asn.cnf</code>. Dans ce nouveau fichier, remplacer globalement la chaîne de caractères <code>ee_</code> par la chaîne <code>ca_</code>, puis effectuer les modifications mises en évidence en gras ci-dessous.</p>
 
